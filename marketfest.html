@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Festival</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('img/mist.png') no-repeat center bottom;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .header {
+    background: linear-gradient(rgba(87, 1, 51, 0.7), rgba(87, 1, 51, 0.7)), 
+              url('img/Copy of DSC04781.jpg') center/cover no-repeat;      text-align: center;
+      padding: 2vh 5vw 5vh;
+      margin-bottom: 5vh;
+    }
+
+    .header h1 {
+      font-size: 4.5vw;
+      font-weight: 900;
+      background: linear-gradient(90deg, #FED670 32%, #FFF2CF 40%, #FFF2CF 55%, #FED670 70%, #FFDA7F 81%, #FFF2CF 93%, #FFDA7F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    .header h2 {
+      font-size: 1.3vw;
+      font-weight: 700;
+      margin-top: 1vh;
+      background: linear-gradient(90deg, #FED670 0%, #FEFBF6 50%, #FFDA7F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .desc {
+      max-width: 900px;
+      background-color: rgba(0, 0, 0, 0.35);
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      margin: 0 auto;
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.8;
+      margin-bottom: 4vh;
+      text-align: justify;
+
+    }
+
+    .location {
+      margin: 3vh auto 1vh;
+      background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 58%, #FFC739 100%);
+      color: #5c1f4b;
+      padding: 1.3em 2.5em;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .location::before {
+      content: "📍";
+    }
+
+    .register-btn {
+      background: linear-gradient(90deg, #E664A1 0%, #ED8C7E 39%);
+      color: white;
+      padding: 1.3em 2.2em;
+      border: none;
+      font-weight: 800;
+      font-size: 1.3rem;
+      border-radius: 30px;
+      display: block;
+      margin: 20px auto 4vh;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .register-btn:hover {
+      opacity: 0.95;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 10vw;
+      }
+
+      .header h2 {
+        font-size: 4.5vw;
+      }
+
+      .desc {
+        font-size: 1.3rem;
+        padding: 2rem;
+      }
+
+      .location {
+        font-size: 1.rem;
+        padding: 1em 1.2em;
+      }
+
+      .register-btn {
+        font-size: 1.1rem;
+        padding: 1.2em 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>MARKETING<br>FESTIVAL</h1>
+    <h2>Monday – Tuesday, 2–3 February 2026</h2>
+  </div>
+
+  <div class="desc">
+    The Marketing Festival is designed for marketing enthusiasts who are eager to learn from real-world experiences and industry insights. It will include a four session seminar that will be split into two consecutive days. Each session will focus on a different marketing topic. In every session, three to four speakers from a range of industries will share their experiences, challenges, and lessons learned in their marketing journeys. With its diverse lineup and discussions, our seminar offers a unique chance to explore how marketing works across different fields while connecting theory with real-world application in an engaging and relatable way.
+  </div>
+
+  <div class="location">Faculty of Economics and Business UI</div>
+  <button class="register-btn">REGISTRATION</button>
+
+</body>
+</html>

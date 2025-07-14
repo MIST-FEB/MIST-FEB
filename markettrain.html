@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('img/Marketing Training BG.png') center/cover no-repeat fixed;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(rgba(87, 1, 51, 0.7), rgba(87, 1, 51, 0.7)), url('img/boom.JPG') center/cover no-repeat;
+      text-align: center;
+      padding: 3vh 4vw 6vh;
+    }
+
+    .header h1 {
+      font-size: 4.5vw;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .header h2 {
+      font-size: 1.2vw;
+      font-weight: 900;
+      margin-top: 1vh;
+    }
+
+    .title-gradient {
+      background: linear-gradient(90deg, #FED670 0%, #FFF2CF 9%, #FEFBF6 25%, #FFF2CF 47%, #FED670 55%, #FEFBF6 76%, #FFF2CF 93%, #FFDA7F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .date-gradient {
+      background: linear-gradient(90deg, #FED670 0%, #FEFBF6 50%, #FFDA7F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .main-section {
+      padding: 5vh 5vw;
+    }
+
+    .content-box {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.35);
+      padding: 3vh 1vw;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .content-box p {
+      font-size: 1.4rem;
+      text-align: justify;
+      font-weight: bold;
+    }
+
+    .location {
+      margin-top: 5vh;
+      background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 58%, #FFC739 100%);
+      color: #5c1f4b;
+      padding: 1.5vh 3vw;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .location::before {
+      content: "📍";
+    }
+
+    .register-btn {
+      background: linear-gradient(90deg, #E664A1 0%, #ED8C7E 39%);
+      color: white;
+      padding: 1.5em 2em;
+      border: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      display: block;
+      margin: 30px auto 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .register-btn:hover {
+      opacity: 0.95;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 10vw;
+      }
+
+      .header h2 {
+        font-size: 4.5vw;
+      }
+
+      .content-box p {
+        font-size: 1rem;
+      }
+
+      .location {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+
+      .register-btn {
+        font-size: 0.95rem;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1><span class="title-gradient">MARKETING<br>TRAINING</span></h1>
+    <h2><span class="date-gradient">Wednesday, 29 October 2025</span></h2>
+  </div>
+
+  <div class="main-section">
+    <div class="content-box">
+      <p>
+        Marketing Training is an interactive learning experience designed for aspiring marketers to explore the dynamic
+        world of marketing in a practical and engaging way. Marketing training also includes sessions with experienced
+        speakers who will share industry insights, trends, and actionable tips, offering a comprehensive and inspiring
+        journey into the field of marketing.
+      </p>
+    </div>
+
+    <div class="location">Faculty of Economics and Business UI</div>
+    <button class="register-btn">REGISTRATION</button>
+  </div>
+
+</body>
+</html>

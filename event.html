@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      background: linear-gradient(rgba(87, 1, 51, 0.7), rgba(87, 1, 51, 0.7)), url('img/Events BG.png') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 8vh 8vw;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #FFC739 30%, #FFFFFF 50%, #FFC739 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 2vh auto 6vh;
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 3rem;
+      border-radius: 20px;
+      line-height: 1.7;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .timeline {
+      position: relative;
+      margin: auto;
+      padding: 3rem 0;
+      max-width: 1300px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 100%;
+      background: #FEECA8;
+      z-index: 0;
+    }
+
+    .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10rem;
+      position: relative;
+    }
+
+    .event.left {
+      flex-direction: row;
+    }
+
+    .event.right {
+      flex-direction: row-reverse;
+    }
+
+    .event img {
+      width: 480px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 25px;
+      z-index: 2;
+    }
+
+    .text {
+      z-index: 2;
+      padding: 0 2rem;
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+      border: 12px solid #FEECA8;
+      background: #FEECA8;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .circle::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 80px;
+      height: 80px;
+      background: inherit;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .label-mist,
+    .label-training,
+    .label-competition,
+    .label-festival {
+      position: relative;
+      z-index: 3;
+      margin-top: 1.5rem;
+      background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);
+      color: #A71B60;
+      font-weight: 900;
+      font-size: 1.7rem;
+      display: inline-block;
+      padding: 0.7em 2em;
+      border-radius: 32px;
+      margin-bottom: 0.3em;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .label-mist:hover,
+    .label-training:hover,
+    .label-competition:hover,
+    .label-festival:hover {
+      transform: scale(1.05);
+    }
+
+    .date {
+      font-size: 2rem;
+      color: #FFEFBF;
+      font-weight: 700;
+      margin-top: 0.5em;
+      display: block;
+      text-align: center;
+      width: 100%;
+      text-shadow: 1px 1px 2px #000;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .event {
+        flex-direction: column !important;
+      }
+
+      .event img {
+        width: 90%;
+        height: auto;
+        margin: 1rem 0;
+      }
+
+      .text {
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .circle {
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>OUR EVENTS</h1>
+  <div class="intro">
+    Through MIST’s series of events, we strive to deliver a holistic and immersive experience, allowing participants to fully engage with and understand the intricate stories and purposes that brands weave into their marketing campaigns. By entering these immersive realms, we invite individuals to not just witness, but to live and breathe the essence of each brand’s story, fostering a deeper, more meaningful experience.
+  </div>
+
+  <div class="timeline">
+
+    <div class="event left">
+      <img src="img/1.png" alt="Mist & Match">
+      <div class="circle"></div>
+      <div class="text">
+        <a href="mistmatch.html" class="label label-mist">MIST & MATCH</a>
+        <div class="date">24 August 2025</div>
+      </div>
+    </div>
+
+    <div class="event right">
+      <img src="img/boom.JPG" alt="Marketing Training">
+      <div class="circle"></div>
+      <div class="text">
+        <a href="markettrain.html" class="label label-training">MARKETING TRAINING</a>
+        <div class="date">29 October 2025</div>
+      </div>
+    </div>
+
+    <div class="event left">
+      <img src="img/Copy of DSC07073.JPG" alt="Marketing Competition">
+      <div class="circle"></div>
+      <div class="text">
+        <a href="marketing-competition.html" class="label label-competition">INTERNATIONAL<br>MARKETING COMPETITION</a>
+        <div class="date">30 Nov 2025 – 7 Feb 2026</div>
+      </div>
+    </div>
+
+    <div class="event right">
+      <img src="img/Copy of DSC04781.jpg" alt="Marketing Festival">
+      <div class="circle"></div>
+      <div class="text">
+        <a href="marketfest.html" class="label label-festival">MARKETING FESTIVAL</a>
+        <div class="date">2–3 February 2026</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
