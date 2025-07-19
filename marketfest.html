@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marketing Festival</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -22,8 +22,9 @@
     }
 
     .header {
-    background: linear-gradient(rgba(87, 1, 51, 0.7), rgba(87, 1, 51, 0.7)), 
-              url('img/Copy of DSC04781.jpg') center/cover no-repeat;      text-align: center;
+      background: linear-gradient(rgba(87, 1, 51, 0.7), rgba(87, 1, 51, 0.7)), 
+        url('img/Copy of DSC04781.jpg') center/cover no-repeat;
+      text-align: center;
       padding: 2vh 5vw 5vh;
       margin-bottom: 5vh;
     }
@@ -34,13 +35,13 @@
       background: linear-gradient(90deg, #FED670 32%, #FFF2CF 40%, #FFF2CF 55%, #FED670 70%, #FFDA7F 81%, #FFF2CF 93%, #FFDA7F 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
 
     .header h2 {
       font-size: 1.3vw;
-      font-weight: 700;
+      font-weight: 800;
       margin-top: 1vh;
       background: linear-gradient(90deg, #FED670 0%, #FEFBF6 50%, #FFDA7F 100%);
       -webkit-background-clip: text;
@@ -61,7 +62,6 @@
       line-height: 1.8;
       margin-bottom: 4vh;
       text-align: justify;
-
     }
 
     .location {
@@ -77,10 +77,19 @@
       align-items: center;
       gap: 0.5vw;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Amaranth', sans-serif;
     }
 
     .location::before {
-      content: "📍";
+      content: "";
+      display: inline-block;
+      width: 2em;
+      height: 2em;
+      background-image: url('img/location.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-right: 0.5em;
     }
 
     .register-btn {
@@ -96,6 +105,7 @@
       cursor: pointer;
       text-transform: uppercase;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      font-family: 'Amaranth', sans-serif;
     }
 
     .register-btn:hover {
@@ -112,12 +122,13 @@
       }
 
       .desc {
-        font-size: 1.3rem;
-        padding: 2rem;
+        font-size: 1rem;
+        padding: 1.5rem;
+        line-height: 1.6;
       }
 
       .location {
-        font-size: 1.rem;
+        font-size: 1rem;
         padding: 1em 1.2em;
       }
 
