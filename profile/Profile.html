@@ -15,6 +15,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -220,6 +221,12 @@
         0 0 20px rgba(255, 255, 255, 0.2);
     }
 
+    .glow-button:hover,
+    .glow-button:active {
+      box-shadow: 0 0 10px #ff1e87, 0 0 20px #ff1e87, 0 0 30px #ff1e87;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
     @keyframes scroll-speakers {
       0% {
         transform: translateX(0);
@@ -312,14 +319,14 @@
         </a>
         <!-- Dropdown Desktop -->
         <ul class="dropdown-menu absolute top-full left-0 mt-2 w-56 text-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-in-out z-50 font-semibold border border-[#FFC739] bg-[#570133] bg-opacity-100">
-          <li><a href="#aboutus" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133] rounded-t-xl">About Us</a></li>
-          <li><a href="#grandtheme" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133]">Grand Theme</a></li>
-          <li><a href="#team" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133]">Meet The Team</a></li>
+          <li><a href="../aboutus.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133] rounded-t-xl">About Us</a></li>
+          <li><a href="../grandtheme.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133]">Grand Theme</a></li>
+          <li><a href="../meettheteam.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133]">Meet The Team</a></li>
           <li><a href="#docs" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133] rounded-b-xl">MIST THROUGH THE YEAR</a></li>
         </ul>
       </li>
       <li><a href="../event.html" class="nav-link" id="nav-profile">Events</a></li>
-      <li><a href="#" class="nav-link">KaMIST</a></li>
+      <li><a href="../kamist.html" class="nav-link">KaMIST</a></li>
     </ul>
 
     <!-- Contact button -->
@@ -434,10 +441,10 @@
               With the continuous growth and evolution of marketing, MIST exists as a platform for aspiring young marketers to grow and gain insight through our series of events, becoming Pioneers in the marketing industry.<br><br>
               Stay, #OptiMIST <br><br>
             </p>
-            <a href="#"
+            <a href="../aboutus.html"
               class="inline-block mt-4 px-6 py-2 text-sm font-bold text-white rounded-full transition duration-300 ease-in-out hover:scale-105"
               style="background: linear-gradient(90deg, #E664A1 0%, #ED8C7E 100%);
-                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);"
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);"
               onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'" 
               onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'">
               Read More
@@ -481,20 +488,107 @@
         </div>
       </section>
 
-      <!-- Highlights -->
-      <section id="events" class="px-6 py-12 text-center" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl mist-gradient-title mb-10">HIGHLIGHTS OF MIST FEB UI</h2>
-        <div class="flex flex-col md:flex-row justify-center gap-6">
-          <div class="bg-white/10 p-4 rounded-xl w-full max-w-xs transition hover:scale-105">
-            <img src="https://via.placeholder.com/300x200" class="rounded-lg mb-4" alt="Mist & Match">
-            <div class="text-[#FFD1DC] font-bold text-lg">24 August 2025</div>
-          </div>
-          <div class="bg-white/10 p-4 rounded-xl w-full max-w-xs transition hover:scale-105">
-            <img src="https://via.placeholder.com/300x200" class="rounded-lg mb-4" alt="Our Latest Kampaign">
-            <div class="text-[#FFD1DC] font-bold text-lg">Our Latest KaMIST</div>
+<!-- HIGHLIGHTS -->
+<section id="events" class="px-6 py-12 text-center overflow-hidden" data-aos="fade-up">
+  <h2 class="text-3xl md:text-4xl lg:text-5xl mist-gradient-title mb-10">HIGHLIGHTS OF MIST FEB UI</h2>
+
+  <!-- Wrapper -->
+  <div class="relative">
+    <!-- Slider Container -->
+    <div id="carousel" class="flex transition-transform duration-500 ease-in-out w-[300%]">
+      
+      <!-- Slide 1 -->
+      <div class="w-full flex-shrink-0 px-4">
+        <div class="bg-white/10 p-4 rounded-xl max-w-sm mx-auto">
+          <img src="GrandTheme.png" class="rounded-lg mb-4 w-full" alt="GRANDTHEME">
+          <div class="mt-12 text-center">
+            <a href="../grandtheme.html">
+              <div class="glow-button inline-flex items-center gap-3 px-6 py-3 rounded-full shadow-lg transition duration-300 hover:shadow-[0_0_25px_#FFC739,0_0_40px_#FFC739] hover:scale-105 active:shadow-[0_0_30px_#FFC739,0_0_60px_#FFC739]"
+                style="background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);">
+                <h1 class="text-xl md:text-3xl font-extrabold tracking-wider"
+                  style="font-family: 'Amaranth', sans-serif;
+                        background: linear-gradient(90deg, #6A063E 0%, #A71B60 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">
+                  GRAND THEME
+                </h1>
+              </div>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+
+
+      <!-- Slide 2 -->
+      <div class="w-full flex-shrink-0 px-4">
+        <div class="bg-white/10 p-4 rounded-xl max-w-sm mx-auto">
+          <img src="MIST&MATCH.png" class="rounded-lg mb-4 w-full" alt="Our Latest Kampaign">
+          <div class="mt-12 text-center">
+            <a href="../mistmatch.html">
+              <div class="glow-button inline-flex items-center gap-3 px-6 py-3 rounded-full shadow-lg transition duration-300 hover:shadow-[0_0_25px_#FFC739,0_0_40px_#FFC739] hover:scale-105 active:shadow-[0_0_30px_#FFC739,0_0_60px_#FFC739]"
+                style="background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);">
+                <h1 class="text-xl md:text-3xl font-extrabold tracking-wider"
+                  style="font-family: 'Amaranth', sans-serif;
+                        background: linear-gradient(90deg, #6A063E 0%, #A71B60 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">
+                  MIST & MATCH
+                </h1>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Slide 3 -->
+      <div class="w-full flex-shrink-0 px-4">
+        <div class="bg-white/10 p-4 rounded-xl max-w-sm mx-auto">
+          <img src="KAMIST.png" class="rounded-lg mb-4 w-full" alt="Our Latest KAMIST">
+          <div class="mt-12 text-center">
+            <a href="../kamist.html">
+              <div class="glow-button inline-flex items-center gap-3 px-6 py-3 rounded-full shadow-lg transition duration-300 hover:shadow-[0_0_25px_#FFC739,0_0_40px_#FFC739] hover:scale-105 active:shadow-[0_0_30px_#FFC739,0_0_60px_#FFC739]"
+                style="background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);">
+                <h1 class="text-xl md:text-3xl font-extrabold tracking-wider"
+                  style="font-family: 'Amaranth', sans-serif;
+                        background: linear-gradient(90deg, #6A063E 0%, #A71B60 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">
+                  OUR LATEST KAMIST
+                </h1>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button onclick="moveSlide(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 p-3 rounded-full hover:bg-white/40 transition">
+      <i class="fas fa-chevron-left text-white"></i>
+    </button>
+    <button onclick="moveSlide(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 p-3 rounded-full hover:bg-white/40 transition">
+      <i class="fas fa-chevron-right text-white"></i>
+    </button>
+  </div>
+</section>
+
+<!-- JavaScript untuk Carousel -->
+<script>
+  let currentIndex = 0;
+  const totalSlides = 3;
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = totalSlides - 1;
+    if (currentIndex >= totalSlides) currentIndex = 0;
+
+    const carousel = document.getElementById("carousel");
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+</script>
+
+
 
       <!-- Speakers -->
       <section class="px-6 py-12 text-center" data-aos="fade-up">
