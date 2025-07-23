@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST Page</title>
+  <style>
+    @font-face {
+      font-family: 'ArchivoBlack';
+      src: url('img/fonts/ArchivoBlack-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background-color: #5b0a4d;
+    }
+
+    .kamist-section {
+      background: url('img/KaMIST BG.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 100px 20px 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .kamist-title {
+      font-family: 'ArchivoBlack', sans-serif;
+      font-size: 48px;
+      font-weight: normal;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .kamist-image {
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .article-box {
+      width: 90%;
+      max-width: 1000px;
+      height: 500px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .article-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="kamist-section">
+    <h1 class="kamist-title">Title</h1>
+    <img src="img/Screenshot 2025-07-19 225212.png" alt="KaMIST Main" class="kamist-image" />
+    
+    <div class="article-box">
+      <iframe src="https://en.wikipedia.org/wiki/Design" title="Article Placeholder"></iframe>
+    </div>
+  </section>
+</body>
+</html>
+
+<!--https://zeus777.org/-->

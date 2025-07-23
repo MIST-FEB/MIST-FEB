@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST: About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Amaranth', sans-serif;
+      background: url('img/About Us BG (1).jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .about-section {
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .about-box {
+      background-color: rgba(0, 0, 0, 0.25); /* more transparent */
+      padding: 40px 30px;
+      max-width: 750px;
+      width: 90%;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-box p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .meet-btn {
+      background: linear-gradient(90deg, #f99f67, #ea4aaa);
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .meet-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .about-title {
+        font-size: 42px;
+      }
+
+      .about-box p {
+        font-size: 16px;
+      }
+
+      .meet-btn {
+        padding: 12px 28px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-section">
+    <h1 class="about-title">ABOUT US</h1>
+    <div class="about-box">
+      <p>
+        MIST is the biggest international Marketing Conference, Seminar, and Training held by students at the Faculty of Economics and Business in the University of Indonesia. We offer all necessary updates and insights about the marketing world.
+      </p>
+      <a href="meettheteam.html" class="meet-btn">Meet Team</a>
+    </div>
+  </section>
+</body>
+</html>

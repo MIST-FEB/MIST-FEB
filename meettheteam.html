@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST: Meet the Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Amaranth', sans-serif;
+      background: url('img/Meet The Team BG.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .team-section {
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .team-title {
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .team-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .team-role {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 180px;
+      font-weight: bold;
+    }
+
+    .photo-box {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .meet-btn {
+      background: linear-gradient(90deg, #f99f67, #ea4aaa);
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .meet-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .team-title {
+        font-size: 42px;
+      }
+
+      .photo-box {
+        width: 80px;
+        height: 80px;
+      }
+
+      .meet-btn {
+        font-size: 14px;
+        padding: 12px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="team-section">
+    <h1 class="team-title">MEET THE TEAM</h1>
+
+    <!-- Top center -->
+    <div class="team-row center">
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Managing Executives</p>
+      </div>
+    </div>
+
+    <!-- Second row -->
+    <div class="team-row">
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Conference Organizer</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Inkind Partnership</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Public Relations</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Strategic Delegations & Outreach</p>
+      </div>
+    </div>
+
+    <!-- Third row -->
+    <div class="team-row">
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Creative Media Partnership</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Event Runner</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Supply Coordinator</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Visual Design</p>
+      </div>
+      <div class="team-role">
+        <div class="photo-box"></div>
+        <p>Company Partnership</p>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <a href="#" class="meet-btn">Junior Managers Registration</a>
+  </section>
+</body>
+</html>
