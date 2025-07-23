@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KaMIST: Grand Theme</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+
+  <!-- ✅ Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet" />
+
   <style>
     * {
       margin: 0;
@@ -14,7 +17,8 @@
 
     html, body {
       height: 100%;
-      font-family: 'Amaranth', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
       background: url('img/Grand theme BG.jpg') no-repeat center center fixed;
       background-size: cover;
       overflow-x: hidden;
@@ -30,15 +34,18 @@
     }
 
     .kamist-title {
-      font-size: 72px; /* increase size */
-      font-weight: 900; /* extra bold */
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 96px;
+      text-transform: uppercase;
       background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(255, 229, 159, 0.6);
       margin: 0 0 20px 0;
+      text-align: center;
     }
 
     .kamist-image {
@@ -48,31 +55,26 @@
     }
 
     .kamist-subtitle {
-      font-size: 36px; /* increase subtitle size */
-      font-weight: 900;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 42px;
       background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     .kamist-subtext {
-      font-size: 18px;
-      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 26px;
       color: white;
       text-align: center;
       line-height: 1.5;
       margin-bottom: 30px;
-    }
-
-    .kamist-gradient-text {
-      background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
     }
 
     .kamist-box {
@@ -87,6 +89,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
     }
 
     .kamist-box p {
@@ -107,23 +111,42 @@
       border-radius: 25px;
       font-size: 16px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 500;
       transition: transform 0.2s ease;
-      text-decoration: none; /* 🔥 removes underline */
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .meet-btn:hover {
       transform: scale(1.05);
     }
+
+    @media (max-width: 768px) {
+      .kamist-title {
+        font-size: 54px;
+      }
+
+      .kamist-subtitle {
+        font-size: 28px;
+      }
+
+      .kamist-subtext {
+        font-size: 16px;
+      }
+
+      .kamist-box {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="kamist-section">
-    <div class="kamist-title kamist-gradient-text">GRAND THEME</div>
+    <div class="kamist-title">GRAND THEME</div>
 
     <img src="img/GrandTheme.png" alt="Grand Theme Image" class="kamist-image" />
 
-    <div class="kamist-subtitle kamist-gradient-text">SHIFTING PARADIGM:</div>
+    <div class="kamist-subtitle">SHIFTING PARADIGM:</div>
     <div class="kamist-subtext">
       Integrating Conscious Perceptions in<br />
       Modern Marketing Landscape
@@ -137,7 +160,6 @@
       <p>Through this year’s grand theme, MIST aims to discover how modern marketing turns ideas into realities, <span>not just how consumers see a brand, but how they connect with it</span>. It is believed that this approach helps brands to stand out in today’s oversaturated market. As consumers’ expectations continue to grow, brands are challenged to foster purposeful and impactful connections. By tapping into the conscious perceptions of today’s market, especially within a digital world, brands can build trust, promote loyalty, and create a long-lasting impact.</p>
 
       <a href="meettheteam.html" class="meet-btn">Meet Team</a>
-
     </div>
   </div>
 </body>
