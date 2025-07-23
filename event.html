@@ -56,10 +56,10 @@
       content: '';
       position: absolute;
       left: 50%;
+      top: 0;
       transform: translateX(-50%);
-      width: 10px;
-      top: 10%;
-      height: 70%;
+      width: 18px;
+      height: 98%;
       background: #FEECA8;
       z-index: 0;
     }
@@ -289,9 +289,13 @@
       }
 
       .timeline::before {
+        display: block !important;
         left: 50%;
         transform: translateX(-50%);
         width: 10px;
+        top: 10%;
+        height: 70%;
+        background: #FEECA8;
       }
 
       .circle {
