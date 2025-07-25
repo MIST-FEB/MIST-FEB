@@ -81,21 +81,27 @@
       flex-direction: row-reverse;
     }
 
+    /* Ubah style gambar event agar tidak ter-crop dan tetap proporsional */
     .event img {
-      width: 480px;
-      height: 320px;
-      object-fit: cover;
+      width: 400px;
+      max-width: 90vw;
+      height: auto;
       border-radius: 25px;
+      display: block;
+      margin: 0 auto;
       z-index: 2;
     }
 
-    /* Khusus untuk gambar PRE EVENT POSTER 1.png */
-    .event img[alt="Mist & Match"] {
-      width: 340px;
-      height: 440px;
-      object-fit: cover;
-      border-radius: 32px;
+    .event.left img {
+      margin-left: 0;
+      margin-right: auto;
     }
+
+    .event.right img {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
 
     .text {
       z-index: 2;
@@ -241,8 +247,9 @@
     }
 
     .mist-gradient-title {
-       font-family: 'Poppins', sans-serif;
-       font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 4.5rem;
       background: linear-gradient(90deg, #FFC739 10%, #FFFFFF 50%, #FFC739 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -270,18 +277,12 @@
 
       .event img {
         width: 90vw !important;
-        max-width: 340px !important;
+        max-width: 90vw !important;
         height: auto !important;
         border-radius: 24px !important;
-        object-fit: cover !important;
         display: block;
-        margin: 0 auto;
-      }
-      .event img[alt="Mist & Match"] {
-        width: 90vw;
-        max-width: 340px;
-        height: auto;
-        border-radius: 24px;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
 
       .text {
@@ -420,7 +421,7 @@
   <div class="timeline">
 
     <div class="event left">
-      <img src="img/PRE EVENT POSTER 1.png" alt="Mist & Match">
+      <img src="img/MIST&MATCH.png" alt="Mist & Match">
       <div class="circle"></div>
       <div class="text">
         <a href="mistmatch.html" class="label label-mist">MIST & MATCH</a>
@@ -429,7 +430,7 @@
     </div>
 
     <div class="event right">
-      <img src="img/boom.JPG" alt="Marketing Training">
+      <img src="img/MARKETING TRAINING.png" alt="Marketing Training">
       <div class="circle"></div>
       <div class="text">
         <a href="markettrain.html" class="label label-training">MARKETING TRAINING</a>
@@ -438,7 +439,7 @@
     </div>
 
     <div class="event left">
-      <img src="img/Copy of DSC07073.JPG" alt="Marketing Competition">
+      <img src="img/MARKETING COMPETITION.png" alt="Marketing Competition">
       <div class="circle"></div>
       <div class="text">
         <a href="marketing_competition/Marketing_Competition.html" class="label label-competition">INTERNATIONAL<br>MARKETING COMPETITION</a>
@@ -447,7 +448,7 @@
     </div>
 
     <div class="event right">
-      <img src="img/Copy of DSC04781.jpg" alt="Marketing Festival">
+      <img src="img/MARKETING FESTIVAL.png" alt="Marketing Festival">
       <div class="circle"></div>
       <div class="text">
         <a href="marketfest.html" class="label label-festival">MARKETING FESTIVAL</a>
