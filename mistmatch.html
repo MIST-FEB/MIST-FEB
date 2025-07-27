@@ -227,8 +227,38 @@
       }
 
       .location-tag img {
-        width: 30px !important;
-        height: 30px !important;
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+
+    .register-btn {
+      background: linear-gradient(90deg, #E664A1 0%, #ED8C7E 39%);
+      color: white;
+      padding: 0.3em 3em;
+      border: none;
+      font-weight: 800;
+      font-size: 1.8rem;
+      border-radius: 30px;
+      display: block;
+      margin: 20px auto 4vh;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      font-family: 'Amaranth', sans-serif;
+      min-width: 0;
+      width: fit-content;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .register-btn:hover {
+      box-shadow: 0 0 25px #ED8C7E, 0 0 40px #E664A1;
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+    @media (max-width: 600px) {
+      .register-btn {
+        font-size: 1.4rem;
+        padding: 0.3em 1em;
       }
     }
   </style>
@@ -356,6 +386,11 @@
   </a>
   </div>
 
+  <!-- Registration Button -->
+  <button class="register-btn"
+    onclick="window.open('https://courtside.id/event?mitra_id=9f6f6945-044b-4847-a184-08a3d88ac5ab&event_id=9f6f6bc6-b857-4b9b-a144-5e17b79b1246','_blank')">
+    REGISTRATION
+  </button>
 
   <!-- ====== FOOTER FROM MARKETTRAIN.HTML START ====== -->
   <footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full"
