@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KaMIST: Grand Theme</title>
 
-  <!-- ✅ Google Fonts Poppins -->
+  <!-- Tailwind CSS & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -34,7 +36,6 @@
     }
 
     .kamist-title {
-      font-family: 'Poppins', sans-serif;
       font-weight: 800;
       font-size: 96px;
       text-transform: uppercase;
@@ -55,7 +56,6 @@
     }
 
     .kamist-subtitle {
-      font-family: 'Poppins', sans-serif;
       font-weight: 800;
       font-size: 42px;
       background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
@@ -68,8 +68,6 @@
     }
 
     .kamist-subtext {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
       font-size: 26px;
       color: white;
       text-align: center;
@@ -89,8 +87,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
     }
 
     .kamist-box p {
@@ -114,7 +110,6 @@
       font-weight: 500;
       transition: transform 0.2s ease;
       text-decoration: none;
-      font-family: 'Poppins', sans-serif;
     }
 
     .meet-btn:hover {
@@ -138,29 +133,141 @@
         font-size: 15px;
       }
     }
+
+    .bg-mist-purple {
+      background-color: #570133 !important;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
+    }
+
+    .nav-link:hover {
+      color: #fcd770;
+    }
+
+    .dropdown-menu {
+      background-color: #570133 !important;
+      border: 2px solid #FFC739 !important;
+    }
+
+    .dropdown-link {
+      position: relative;
+      display: block;
+      padding: 0.75rem 1.25rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-link:hover {
+      background-color: #FFC739;
+      color: #570133;
+    }
   </style>
 </head>
 <body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="relative w-full bg-mist-purple z-50">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
+        <img src="assets/Navbar/MISTKuning.png" alt="MIST Logo" class="w-8 h-8 object-contain" />
+        <span class="text-white font-bold">The 22nd MIST</span>
+      </div>
+      <ul class="hidden md:flex space-x-6 text-sm font-semibold text-white -ml-4">
+        <li><a href="../profile/Profile.html" class="nav-link">Profile</a></li>
+        <li class="relative group">
+          <a href="../aboutus.html" class="flex items-center nav-link gap-1 cursor-pointer font-semibold text-white">
+            About Us
+            <svg class="w-3 h-3 mt-[1px]" fill="white" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <ul class="dropdown-menu absolute top-full left-0 mt-2 w-56 text-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-in-out z-50 font-semibold">
+            <li><a href="../aboutus.html" class="dropdown-link">About Us</a></li>
+            <li><a href="../grandtheme.html" class="dropdown-link">Grand Theme</a></li>
+            <li><a href="../meettheteam.html" class="dropdown-link">Meet The Team</a></li>
+            <li><a href="../mistthroughtheyear.html" class="dropdown-link">MIST THROUGH THE YEAR</a></li>
+          </ul>
+        </li>
+        <li><a href="../event.html" class="nav-link">Events</a></li>
+        <li><a href="../kamist.html" class="nav-link">KaMIST</a></li>
+      </ul>
+      <a href="#contact" class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
+        onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+        onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
+        style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">Contact us</a>
+      <div class="md:hidden block z-50 bg-mist-purple px-4 py-2 rounded-lg">
+        <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
+      <a href="../profile/Profile.html" class="block nav-link">Profile</a>
+      <div>
+        <button id="about-toggle" class="w-full text-left nav-link flex justify-between items-center">
+          About Us
+          <svg class="w-3 h-3 transform transition-transform" id="about-arrow" fill="white" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div id="about-submenu" class="hidden ml-4 mt-2 space-y-2">
+          <a href="../aboutus.html" class="block nav-link">About Us</a>
+          <a href="../grandtheme.html" class="block nav-link">Grand Theme</a>
+          <a href="../meettheteam.html" class="block nav-link">Meet The Team</a>
+          <a href="../mistthroughtheyear.html" class="block nav-link">MIST THROUGH THE YEAR</a>
+        </div>
+      </div>
+      <a href="../event.html" class="block nav-link">Events</a>
+      <a href="../kamist.html" class="block nav-link">KaMIST</a>
+      <a href="#contact" class="block w-max mx-auto px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
+        onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+        onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
+        style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">Contact us</a>
+    </div>
+  </nav>
+
+  <!-- ====== PAGE CONTENT ====== -->
   <div class="kamist-section">
     <div class="kamist-title">GRAND THEME</div>
-
     <img src="img/GrandTheme.png" alt="Grand Theme Image" class="kamist-image" />
-
     <div class="kamist-subtitle">SHIFTING PARADIGM:</div>
-    <div class="kamist-subtext">
-      Integrating Conscious Perceptions in<br />
-      Modern Marketing Landscape
-    </div>
+    <div class="kamist-subtext">Integrating Conscious Perceptions in<br />Modern Marketing Landscape</div>
 
     <div class="kamist-box">
       <p>Today’s marketing landscape is undergoing a fundamental change driven by technology, social media, and a rising demand for authenticity. Brands are now <span>expected to create meaningful remarks and value-driven narratives that align with real consumer behaviors</span>. This shift is led by Gen Z, a generation that seeks transparency, inclusivity, and purpose in the brands they choose to support.</p>
-
-      <p>Our grand theme, <span>Shifting Paradigm: Integrating Conscious Perceptions in the Modern Marketing Landscape</span>, reflects this ongoing transformation. It emphasizes how branding today must go beyond promotion and <span>begin with perception</span>, integrating <span>consumer psychology</span> into the core of storytelling, personalization, and digital engagement. As branding becomes a mirror of consumer identity, <span>marketing transforms</span> from simply <span>“selling”</span> to actively <span>"engaging and relating"</span>. This shift calls marketers to understand not just what consumers buy, but why they buy, rooted in values, emotions, and evolving social consciousness.</p>
-
+      <p>Our grand theme, <span>Shifting Paradigm: Integrating Conscious Perceptions in the Modern Marketing Landscape</span>, reflects this ongoing transformation. It emphasizes how branding today must go beyond promotion and <span>begin with perception</span>, integrating <span>consumer psychology</span> into the core of storytelling, personalization, and digital engagement. As branding becomes a mirror of consumer identity, <span>marketing transforms</span> from simply <span>“selling”</span> to actively <span>"engaging and relating"</span>.</p>
       <p>Through this year’s grand theme, MIST aims to discover how modern marketing turns ideas into realities, <span>not just how consumers see a brand, but how they connect with it</span>. It is believed that this approach helps brands to stand out in today’s oversaturated market. As consumers’ expectations continue to grow, brands are challenged to foster purposeful and impactful connections. By tapping into the conscious perceptions of today’s market, especially within a digital world, brands can build trust, promote loyalty, and create a long-lasting impact.</p>
-
       <a href="meettheteam.html" class="meet-btn">Meet Team</a>
     </div>
   </div>
-</body>
-</html>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+      <div>
+        <h3 class="font-bold text-lg mb-2">PARTNERSHIP</h3>
+        <p>0818-236-900 (Michelle) | Company and In-Kind Partnership</p>
+        <p><a href="mailto:partnership@mist-febui.com" class="underline hover:text-yellow-300">partnership@mist-febui.com</a></p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">PUBLICATION</h3>
+        <p>0821-1170-7538 (Dira) | Media Partnership</p>
+        <p><a href="mailto:publication@mistfebui.com" class="underline hover:text-yellow-300">publication@mistfebui.com</a></p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">EVENT</h3>
+        <p>0813-2222-9532 (Kiara) | Conference Organizer</p>
+        <p>0812-8228-3503 (Farell) | Event Runner</p>
+        <p><a href="mailto:event@mist-febui.com" class="underline hover:text-yellow-300">event@mist-febui.com</a></p>
+      </div>
+    </div>
+    <div class="border-t border-white/20 mt-10 pt-8">
+      <div class="flex flex-wrap justify-center gap-6 text-sm">
+        <a href="https://www.instagram.com/mistfebui/" target="_blank" class="hover:text-yellow-300"><i class="fab fa-instagram mr-1"></i> @mistfebui</a>
+        <a href="https://x.com/mistfebui" target="_blank" class="hover:text-yellow-300"><i class="fab fa-x-twitter mr-1"></i> @mistfebui</a>
+        <a href="https://tiktok.com/@mistfebui" target="_blank" class="hover:text-yellow-300"><i class="fab fa-tiktok mr-1"></i> @mistfebui</a>
+        <a href="https://www.linkedin.com/company/mist-febui/" target="_blank" class="hover:text-yellow-300"><i class="fab fa-linkedin mr-1"></i> MIST FEB UI</a>
+      </div>
+      <div class="text-center text-white/60 mt-6 text-xs">&copy; 2025 The 22nd MIST. All rights reserved.</div>
+    </div>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Past Documentations</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('img/Mist Through The Year Background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      font-size: 30px;
+    }
+
+
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+      background: linear-gradient(90deg, #FFC739 3%, #FFFFFF 50%, #FFC739 100%);
+      -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;    /* fallback */
+    }
+
+    h2{
+        background: linear-gradient(90deg, #FFC739 3%, #FFFFFF 50%, #FFC739 100%);
+        -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;    /* fallback */
+    }
+
+    /* Carousel for past documentation */
+    .carousel-wrapper {
+      overflow-x: auto;
+      white-space: nowrap;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      margin: 40px 0;
+    }
+
+    .carousel-slide {
+      display: inline-block;
+      scroll-snap-align: start;
+      width: 100vw;
+      padding: 0 10px;
+    }
+
+    .slide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 15px;
+      justify-items: center;
+    }
+
+    .slide-grid img {
+      width: 95%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .media-title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-top: 35vh;
+      color: #fff;
+
+    }
+
+    /* Partner sections aligned to background stripes */
+    .partner-title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-top: 10vh;
+      color: #fff;
+
+    }
+
+    .partner-section {
+      height: 120px; /* aligns with middle gray bar */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .media-section {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .rolling-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .rolling-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 30s linear infinite;
+    }
+
+    .rolling-track img {
+      height: 80px;
+      margin: 0 40px;
+      object-fit: contain;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .slide-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .slide-grid img {
+        height: 150px;
+      }
+
+      .rolling-track img {
+        height: 50px;
+        margin: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PAST DOCUMENTATIONS</h1>
+  <div class="carousel-wrapper">
+    <div class="carousel-slide">
+      <div class="slide-grid">
+        <img src="img/Website Photos/Copy of DSC04275.JPG" alt="Doc 1" />
+        <img src="img/Website Photos/Copy of DSC04642.jpg" alt="Doc 2" />
+        <img src="img/Website Photos/Copy of DSC04667.jpg" alt="Doc 3" />
+        <img src="img/Website Photos/Copy of DSC04705.JPG" alt="Doc 4" />
+        <img src="img/Website Photos/Copy of DSC04727.jpg" alt="Doc 5" />
+        <img src="img/Website Photos/Copy of DSC04780.jpg" alt="Doc 6" />
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="slide-grid">
+        <img src="img/Website Photos/Copy of DSC06229.JPG" alt="Doc 7" />
+        <img src="img/Website Photos/Copy of DSC06685.JPG" alt="Doc 8" />
+        <img src="img/Website Photos/Copy of DSC07055.JPG" alt="Doc 9" />
+        <img src="img/Website Photos/Copy of DSC07058.JPG" alt="Doc 10" />
+        <img src="img/Website Photos/Copy of DSC07060.JPG" alt="Doc 11" />
+        <img src="img/Website Photos/Copy of DSC07073.JPG" alt="Doc 12" />
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPANY PARTNERS -->
+  <h2 class="media-title">COMPANY PARTNERS</h2>
+  <div class="partner-section">
+    <div class="rolling-container">
+      <div class="rolling-track">
+        <!-- Repeat all logos twice for seamless scroll -->
+        <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
+        <img src="img/comPar/Group 3449.png" alt="Prudential" />
+        <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
+        <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
+        <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
+        <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
+        <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
+        <img src="img/ComPar/image 6860.png" alt="BlueBird" />
+        <img src="img/ComPar/logo paragon.png" alt="Paragon" />
+        <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
+        <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
+        <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
+        <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
+        <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
+        <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
+        <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
+        <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
+        <!-- Repeat again for seamless loop -->
+        <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
+        <img src="img/comPar/Group 3449.png" alt="Prudential" />
+        <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
+        <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
+        <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
+        <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
+        <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
+        <img src="img/ComPar/image 6860.png" alt="BlueBird" />
+        <img src="img/ComPar/logo paragon.png" alt="Paragon" />
+        <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
+        <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
+        <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
+        <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
+        <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
+        <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
+        <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
+        <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDIA PARTNERS -->
+  <h2 class="partner-title">MEDIA PARTNER</h2>
+  <div class="media-section">
+    <div class="rolling-container">
+      <div class="rolling-track">
+        <!-- Media partner logos, repeated twice -->
+        <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
+        <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
+        <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
+        <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
+        <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
+        <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
+        <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
+        <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
+        <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
+        <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
+        <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
+        <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
+        <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
+        <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
+        <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
+        <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
+        <!-- Repeat for seamless scroll -->
+        <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
+        <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
+        <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
+        <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
+        <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
+        <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
+        <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
+        <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
+        <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
+        <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
+        <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
+        <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
+        <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
+        <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
+        <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
+        <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
