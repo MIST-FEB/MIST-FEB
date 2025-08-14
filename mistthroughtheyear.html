@@ -211,20 +211,24 @@
     /* --- MOBILE FRIENDLY FOR PARTNER & MEDIA SECTION --- */
     @media (max-width: 768px) {
       .partner-section, .media-section {
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0; /* reset kiri */
-        padding-right: 0; /* reset kanan */
-        width: 100%; /* bukan 100vw */
+        margin: 0 auto;
+        width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-      }
-
-      .partner-section .inner-container, 
-      .media-section .inner-container {
-        padding-left: 16px;  /* kasih jarak kiri kanan yang sama */
+        padding-left: 16px;
         padding-right: 16px;
       }
+
+      .partner-section .logo-box,
+      .media-section .logo-box {
+        width: 100%;
+        margin: 0 auto;
+        padding: 8px 0; /* sama untuk semua */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       .rolling-container {
         width: 100vw;
         max-width: 100vw;
