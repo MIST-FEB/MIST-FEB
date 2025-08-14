@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Events</title>
+  <!-- Preload important images -->
+  <link rel="preload" as="image" href="img/Events BG.png">
+  <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
+  <link rel="preload" as="image" href="img/MIST&MATCH.png">
+  <link rel="preload" as="image" href="img/MARKETING TRAINING.png">
+  <link rel="preload" as="image" href="img/MARKETING COMPETITION.png">
+  <link rel="preload" as="image" href="img/MARKETING FESTIVAL.png">
   <!-- Tailwind CSS & FontAwesome for Navbar -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -179,7 +186,7 @@
       letter-spacing: 1px;
     }
 
-    /* Navbar custom style from profile.html */
+    /* Navbar custom style from index.html */
     .gradient-bg {
       background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
     }
@@ -369,7 +376,7 @@
 
       <!-- Desktop Menu -->
       <ul class="hidden md:flex space-x-6 text-sm font-semibold text-white -ml-4">
-        <li><a href="Profile.html" class="nav-link">Profile</a></li>
+        <li><a href="index.html" class="nav-link">Profile</a></li>
         <!-- DESKTOP NAVBAR -->
         <li class="relative group">
           <a href="aboutus.html" class="flex items-center nav-link gap-1 cursor-pointer font-semibold text-white">
@@ -409,7 +416,7 @@
 
     <!-- Mobile menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
-      <a href="Profile.html" class="block nav-link">Profile</a>
+      <a href="index.html" class="block nav-link">Profile</a>
 
       <!-- Dropdown for About Us -->
       <div>
