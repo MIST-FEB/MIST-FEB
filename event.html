@@ -100,19 +100,36 @@
     }
 
     .event.left img {
-      margin-left: 0;
+      margin-left: 150px; /* geser ke kiri */
       margin-right: auto;
     }
 
     .event.right img {
-      margin-right: 0;
+      margin-right: 150px; /* geser ke kanan */
       margin-left: auto;
     }
 
+    .event.left .text {
+      align-items: flex-start;
+      text-align: left;
+      margin-right: 90px; /* geser ke kiri sejajar gambar */
+    }
+
+    .event.right .text {
+      align-items: flex-end;
+      text-align: right;
+      margin-left: 90px; /* geser ke kanan sejajar gambar */
+    }
 
     .text {
       z-index: 2;
       padding: 0 2rem;
+      /* Tambahkan berikut agar label & tanggal selalu di tengah vertikal */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 160px; /* Atur tinggi sesuai kebutuhan agar semua rata */
     }
 
     .circle {
@@ -153,8 +170,12 @@
       font-weight: 900;
       font-size: 1.7rem;
       display: inline-block;
-      padding: 0.7em 2em;
-      border-radius: 32px;
+      /* Fixed size for all label boxes */
+      width: 440px;
+      height: 110px;
+      padding: 0;
+      line-height: 1.15;
+      border-radius: 40px;
       margin-bottom: 0.3em;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
@@ -163,6 +184,10 @@
       transition: transform 0.2s ease;
       word-break: break-word;
       background-clip: padding-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .label-mist:hover,
@@ -339,9 +364,15 @@
       .label-training,
       .label-competition,
       .label-festival {
-        font-size: 1.2rem;
-        padding: 0.6em 1.5em;
+        font-size: 1.1rem;
+        width: 90vw;
+        max-width: 320px;
+        height: 56px;
+        padding: 0;
         border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .date {
@@ -416,17 +447,6 @@
 
     <!-- Mobile menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
-      <a href="index.html" class="block nav-link">Profile</a>
-
-      <!-- Dropdown for About Us -->
-      <div>
-        <button id="about-toggle" class="w-full text-left nav-link flex justify-between items-center">
-          <span class="font-light">About Us</span>
-          <svg class="w-3 h-3 transform transition-transform" id="about-arrow" fill="white" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-          </svg>
-        </button>
-
         <div id="about-submenu" class="hidden ml-4 mt-2 space-y-2">
           <a href="aboutus.html" class="block nav-link">About Us</a>
           <a href="grandtheme.html" class="block nav-link">Grand Theme</a>
