@@ -386,6 +386,14 @@
         font-size: 1.1rem;
         line-height: 1.6;
       }
+
+      .event.left .text,
+      .event.right .text {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
     }
 
     footer .max-w-6xl > div {
@@ -447,6 +455,17 @@
 
     <!-- Mobile menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
+      <a href="index.html" class="block nav-link">Profile</a>
+
+      <!-- Dropdown for About Us -->
+      <div>
+        <button id="about-toggle" class="w-full text-left nav-link flex justify-between items-center">
+          <span class="font-light">About Us</span>
+          <svg class="w-3 h-3 transform transition-transform" id="about-arrow" fill="white" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+
         <div id="about-submenu" class="hidden ml-4 mt-2 space-y-2">
           <a href="aboutus.html" class="block nav-link">About Us</a>
           <a href="grandtheme.html" class="block nav-link">Grand Theme</a>
