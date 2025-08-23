@@ -20,6 +20,12 @@
       padding: 0;
       box-sizing: border-box;
     }
+    :root{
+      --banner-max: 400px;      /* top Managing Executives image size */
+      --role-width: 320px;      /* desktop width of each role image */
+      --role-gap: 32px;         /* gap between items */
+      --role-ratio: 4 / 3;      /* consistent card shape (try 16/9, 3/2, etc.) */
+    }
 
     html, body {
       height: 100%;
@@ -197,6 +203,66 @@
     .group:hover .group-hover\:visible {
       visibility: visible;
     }
+    /* Big banner (top) */
+    .team-photo-banner{
+      width: 100%;
+      max-width: var(--banner-max);
+      height: auto;
+      display: block;
+      margin: 0 auto 48px;
+      border-radius: 16px;
+    }
+
+    .roles-grid{
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto 56px;
+      display: grid;
+      gap: var(--role-gap);
+      justify-content: center;              /* center fixed-width columns */
+    }
+
+    /* Grid rows */
+    .roles-grid.top {
+      display: grid;
+      grid-template-columns: repeat(4, var(--role-width));
+      gap: 32px;
+      justify-content: center;
+      align-items: end;   /* ensure bottoms align */
+    }
+    .roles-grid.bottom {
+      display: grid;
+      grid-template-columns: repeat(5, var(--role-width));
+      gap: 32px;
+      justify-content: center;
+      align-items: end;   /* ensure bottoms align */
+    }
+
+    /* Role images forced into equal box */
+    .role-img {
+      width: 100%;
+      height: var(--role-height); /* lock uniform height */
+      object-fit: contain;        /* keep full image, may add blank space */
+      display: block;
+      border-radius: 12px;
+      padding: 8px;               /* optional: inner margin so text doesn’t touch edge */
+    }
+
+    /* ===== RESPONSIVE OVERRIDES ===== */
+    @media (max-width: 1200px) {
+      :root { --role-width: 280px; --role-height: 210px; }
+      .roles-grid.top { grid-template-columns: repeat(3, var(--role-width)); }
+      .roles-grid.bottom { grid-template-columns: repeat(3, var(--role-width)); }
+    }
+    @media (max-width: 900px) {
+      :root { --role-width: 220px; --role-height: 180px; }
+      .roles-grid.top, .roles-grid.bottom { grid-template-columns: repeat(2, var(--role-width)); }
+    }
+    @media (max-width: 560px) {
+      :root { --role-width: 90vw; --role-height: 68vw; }
+      .roles-grid.top, .roles-grid.bottom { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -288,19 +354,38 @@
 
 
   <!-- ====== TEAM SECTION START ====== -->
-  <section class="team-section">
-    <h1 class="team-title">MEET THE TEAM</h1>
-    <br><br/>
-    <br><br/>
+<section class="team-section">
+  <h1 class="team-title">MEET THE TEAM</h1>
 
-    <div style="margin: 40px 0; font-size: 2rem; font-weight: bold; color: #ffe59f; text-shadow: 0 2px 10px #570133;">
-      To Be Announced
+  <!-- Managing Executives -->
+  <div class="team-row center">
+    <img src="img/MANAGING EXECUTIVES.png" alt="Managing Executives" class="team-photo-banner" />
+  </div>
+
+  <!-- Other Roles -->
+    <!-- First row: 4 roles -->
+    <div class="roles-grid top">
+      <img src="img/CONFERENCE ORGANIZER.png" alt="Conference Organizer" class="role-img" />
+      <img src="img/INKIND PARTNERSHIP.png" alt="Inkind Partnership" class="role-img" />
+      <img src="img/PUBLIC RELATIONS.png" alt="Public Relations" class="role-img" />
+      <img src="img/STRATEGIC DELEGATIONS & OUTREACH.png" alt="Strategic Delegations & Outreach" class="role-img" />
     </div>
-    <!-- You can add team content here when ready -->
-    <br><br/>
- 
-    <a href="#" class="meet-btn">Junior Managers Registration</a>
-  </section>
+
+    <!-- Second row: 5 roles -->
+    <div class="roles-grid bottom">
+      <img src="img/CREATIVE MEDIA PARTNERSHIP.png" alt="Creative Media Partnership" class="role-img" />
+      <img src="img/EVENT RUNNER.png" alt="Event Runner" class="role-img" />
+      <img src="img/SUPPLY COORDINATOR.png" alt="Supply Coordinator" class="role-img" />
+      <img src="img/VISUAL MARKETING.png" alt="Visual Marketing" class="role-img" />
+      <img src="img/CORPORATE PARTNERSHIP.png" alt="Corporate Partnership" class="role-img" />
+    </div>
+
+
+  </div>
+
+  <a href="#" class="meet-btn">Junior Managers Registration</a>
+</section>
+
 
   
   <!-- ====== TEAM SECTION END ====== -->
