@@ -380,7 +380,7 @@
 
 </h1>
 
-    </div>
+  </div>
 
     <!-- RESPONSIVE TIMELINE IMAGE -->
     <div class="w-full flex justify-center mt-8 px-2">
@@ -469,6 +469,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function updateTimelineImage() {
+    const img = document.querySelector('img[alt="IMCC Timeline"]');
+    if (!img) return;
+    if (window.innerWidth <= 768) {
+      img.src = "TIMELINEMOBILE.png";
+    } else {
+      img.src = "Timeline_MarCom.png";
+    }
+  }
+  window.addEventListener('resize', updateTimelineImage);
+  window.addEventListener('DOMContentLoaded', updateTimelineImage);
+</script>
 
 </body>
 </html>
