@@ -8,7 +8,6 @@
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
   <link rel="preload" as="image" href="img/KaMIST BG.jpg">
-  <link rel="preload" as="image" href="img/Screenshot 2025-07-19 225212.png">
 
   <!-- Tailwind & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -29,27 +28,37 @@
       padding:100px 20px 60px;
       display:flex;flex-direction:column;align-items:center;
     }
-    .kamist-hashtag{
-      font-size:48px;font-weight:900;text-transform:uppercase;margin-bottom:18px;text-align:center;
-      background:linear-gradient(90deg,#ffe59f,#ffffff,#ffe59f);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;color:transparent;
-    }
-    .kamist-title{
-      font-size:48px;font-weight:900;text-transform:uppercase;margin-bottom:18px;text-align:center;
+    .kamist-hashtag,.kamist-title{
+      font-size:48px;font-weight:900;text-transform:uppercase;margin-bottom:12px;text-align:center;
       background:linear-gradient(90deg,#ffe59f,#ffffff,#ffe59f);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
       background-clip:text;color:transparent;
     }
 
-    /* ---------- Header picture ---------- */
-    .kamist-hero{
-      width:100%;max-width:880px;border-radius:20px;
-      box-shadow:0 12px 36px rgba(0,0,0,.35);
-      margin:8px auto 28px;display:block;
+    /* ---------- Filter bar ---------- */
+    .filter-bar{
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;
+      margin:6px auto 18px;
+    }
+    .filter-btn{
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:700;
+      letter-spacing:.02em;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .filter-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .filter-btn.active{
+      background:linear-gradient(90deg,#E664A1 25%,#ED8C7E 35%,#F8AF56 50%,#ED8C7E 72%,#E664A1 90%);
+      border-color:transparent;
     }
 
-    /* ---------- Translucent panel with SCROLL (featured + others) ---------- */
+    /* ---------- Translucent panel with SCROLL ---------- */
     .cards-panel{
       width:100%;max-width:920px;margin:0 auto;
       padding:24px;border-radius:24px;
@@ -59,18 +68,18 @@
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     }
     .viewport{
-      overflow:auto;
+      overflow:auto;          /* scrolling happens here */
       border-radius:18px;
       outline:1px solid rgba(255,255,255,.12);
     }
     .grid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));  /* 2-up on desktop */
       gap:24px;
       padding:16px;
     }
 
-    /* ---------- Cards ---------- */
+    /* ---------- Cards (ALL same size) ---------- */
     .card{
       position:relative;border-radius:18px;overflow:hidden;
       background:rgba(255,255,255,.06);
@@ -78,12 +87,10 @@
       box-shadow:0 10px 24px rgba(0,0,0,.30);
       transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
       display:block;text-decoration:none;color:inherit;
+      aspect-ratio:1/1;       /* uniform square tiles */
     }
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.40);filter:brightness(1.04)}
     .card img{width:100%;height:100%;object-fit:cover;display:block}
-
-    .featured{grid-column:1 / -1; aspect-ratio: 2 / 1;}
-    .regular{aspect-ratio: 1 / 1;}
 
     .ribbon{
       position:absolute;top:12px;left:12px;font-weight:800;font-size:12px;
@@ -103,8 +110,7 @@
     /* ---------- Responsive ---------- */
     @media (max-width:720px){
       .kamist-title{font-size:36px}
-      .featured{aspect-ratio:1/1}
-      .grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr} /* 1-up on mobile */
     }
 
     /* ---------- Navbar carryover styles ---------- */
@@ -138,11 +144,13 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="relative w-full bg-mist-purple z-50">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+      <!-- Logo -->
       <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
         <img src="assets/Navbar/MISTKuning.png" alt="MIST Logo" class="w-8 h-8 object-contain"/>
         <span class="text-white font-bold">The 22nd MIST</span>
       </div>
 
+      <!-- Desktop Menu -->
       <ul class="hidden md:flex space-x-6 text-sm font-semibold text-white -ml-4">
         <li><a href="index.html" class="nav-link">Profile</a></li>
         <li class="relative group">
@@ -152,6 +160,7 @@
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
             </svg>
           </a>
+          <!-- Dropdown Desktop -->
           <ul class="dropdown-menu absolute top-full left-0 mt-2 w-56 text-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-in-out z-50 font-semibold border border-[#FFC739] bg-[#570133] bg-opacity-100">
             <li><a href="aboutus.html" class="dropdown-link rounded-t-xl">About Us</a></li>
             <li><a href="grandtheme.html" class="dropdown-link">Grand Theme</a></li>
@@ -163,6 +172,7 @@
         <li><a href="kamist.html" class="nav-link">KaMIST</a></li>
       </ul>
 
+      <!-- Contact button -->
       <a href="#contact"
         class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
         onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
@@ -171,6 +181,7 @@
         Contact us
       </a>
 
+      <!-- Hamburger -->
       <div class="md:hidden block z-50 bg-mist-purple px-4 py-2 rounded-lg">
         <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
           <i class="fas fa-bars"></i>
@@ -178,8 +189,11 @@
       </div>
     </div>
 
+    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
       <a href="index.html" class="block nav-link">Profile</a>
+
+      <!-- Dropdown for About Us -->
       <div>
         <button id="about-toggle" class="w-full text-left nav-link flex justify-between items-center">
           <span class="font-light">About Us</span>
@@ -187,6 +201,7 @@
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
           </svg>
         </button>
+
         <div id="about-submenu" class="hidden ml-4 mt-2 space-y-2">
           <a href="aboutus.html" class="block nav-link">About Us</a>
           <a href="grandtheme.html" class="block nav-link">Grand Theme</a>
@@ -194,6 +209,7 @@
           <a href="mistthroughtheyear.html" class="block nav-link">MIST THROUGH THE YEAR</a>
         </div>
       </div>
+
       <a href="event.html" class="block nav-link">Events</a>
       <a href="kamist.html" class="block nav-link">KaMIST</a>
       <a href="#contact"
@@ -209,83 +225,95 @@
 
   <!-- ===== MAIN ===== -->
   <section class="kamist-section" style="position:relative;">
-    <div class="kamist-hashtag" style="font-family:'Poppins',sans-serif;font-size:56px;">
-      #KaMIST
-    </div>
-    <br><br/>
-    <!-- Google Fonts: Amaranth -->
-    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap" rel="stylesheet"/>
+    <div class="kamist-hashtag">#KaMIST</div>
     <h1 class="kamist-title">Our Articles</h1>
 
-    <!-- ONE translucent panel: Featured is FIRST and part of the SCROLL -->
+    <!-- Filter bar -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all" type="button">All</button>
+      <button class="filter-btn" data-filter="august" type="button">August</button>
+      <button class="filter-btn" data-filter="july" type="button">July</button>
+      <button class="filter-btn" data-filter="june" type="button">June</button>
+      <button class="filter-btn" data-filter="may" type="button">May</button>
+      
+ 
+    </div>
+
+    <!-- Cards panel (scroll) -->
     <div class="cards-panel">
       <div class="viewport" id="viewport">
         <div class="grid" id="grid">
-          <!-- Featured (spans both columns, included in scroll) -->
-          <a class="card regular" href="demonslayin.html">
+          <!-- September -->
+
+
+          <!-- August -->
+          <a class="card" data-month="august" href="demonslayin.html">
             <span class="ribbon">#KaMIST</span>
-            <img src="img/DemonSlayin.png" alt="Wake Up, Go Viral!"/>
+            <img src="img/DemonSlayin.png" alt="Passion, Pain & Demon Slayin’"/>
             <div class="caption">Passion, Pain & Demon Slayin’</div>
           </a>
-
-          <a class="card regular" href="ltab.html">
+          <a class="card" data-month="august" href="ltab.html">
             <span class="ribbon">#KaMIST</span>
-            <img src="img/LTAB.png" alt="Wake Up, Go Viral!"/>
-            <div class="caption">Love Time and Branding</div>
+            <img src="img/LTAB.png" alt="Love, Time and Branding"/>
+            <div class="caption">Love, Time and Branding</div>
           </a>
 
-          <a class="card regular" href="FromSoletoSoul.html">
+          <a class="card" data-month="august" href="FromSoletoSoul.html">
             <span class="ribbon">#KaMIST</span>
-            <img src="img/FromSoleToSoul.png" alt="Wake Up, Go Viral!"/>
+            <img src="img/FromSoleToSoul.png" alt="From Sole to Soul"/>
             <div class="caption">From Sole to Soul</div>
           </a>
 
-          <!-- First 4 (visible below the featured before scrolling) -->
 
-          <a class="card regular" href="GameSetMatch.html">
+
+          <!-- July -->
+          <a class="card" data-month="july" href="GameSetMatch.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/GameSetMatch.png" alt="Game, Set, Match!"/>
             <div class="caption">Game, Set, Match!</div>
           </a>
 
-          <a class="card regular" href="ChageeFever.html">
+          <a class="card" data-month="july" href="ChageeFever.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/ChageeFever.png" alt="Chagee Fever"/>
             <div class="caption">Chagee Fever</div>
           </a>
 
-          <a class="card regular" href="FastTrack.html">
+          <a class="card" data-month="july" href="FastTrack.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/FastTrack.png" alt="Fast Track"/>
             <div class="caption">Fast Track</div>
           </a>
 
-          <a class="card regular" href="WakeUpGoViral.html">
+          <a class="card" data-month="july" href="WakeUpGoViral.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/WakeUpGoViral.png" alt="Wake Up, Go Viral!"/>
             <div class="caption">Wake Up Go Viral</div>
           </a>
 
-          <a class="card regular" href="RiseOfGenerative.html">
+          <!-- June -->
+
+          <a class="card" data-month="june" href="RiseOfGenerative.html">
             <span class="ribbon">#KaMIST</span>
-            <img src="img/RiseOfGenerative.png" alt="Love, Time and Branding"/>
+            <img src="img/RiseOfGenerative.png" alt="Rise Of Generative"/>
             <div class="caption">Rise Of Generative</div>
           </a>
 
-          <!-- Extra (appear after scroll) -->
-          <a class="card regular" href="swji.html">
+          <a class="card" data-month="june" href="swji.html">
             <span class="ribbon">#KaMIST</span>
-            <img src="img/SWJI.png" alt="From Sole to Soul"/>
+            <img src="img/SWJI.png" alt="Small Wins Jumbo Impact"/>
             <div class="caption">Small Wins Jumbo Impact</div>
           </a>
 
-          <a class="card regular" href="Matcha%20Partea.html">
+          <!-- May -->
+
+          <a class="card" data-month="may" href="Matcha%20Partea.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/MatchaPartea.png" alt="Matcha Partea"/>
             <div class="caption">Matcha Partea</div>
           </a>
 
-          <!-- Add more .card.regular here; they'll be scrollable -->
+          <!-- Add more .card with data-month and month/YourFile.html as you publish -->
         </div>
       </div>
     </div>
@@ -327,47 +355,91 @@
   <!-- ===== SCRIPTS ===== -->
   <script>
     // Mobile nav toggles
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-    document.getElementById('about-toggle').addEventListener('click', function () {
-      const submenu = document.getElementById('about-submenu');
-      const arrow = document.getElementById('about-arrow');
-      submenu.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    });
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        if (menu) menu.classList.toggle('hidden');
+      });
+    }
+    const aboutToggle = document.getElementById('about-toggle');
+    if (aboutToggle) {
+      aboutToggle.addEventListener('click', function () {
+        const submenu = document.getElementById('about-submenu');
+        const arrow = document.getElementById('about-arrow');
+        if (submenu) submenu.classList.toggle('hidden');
+        if (arrow) arrow.classList.toggle('rotate-180');
+      });
+    }
 
-    // Compute viewport height so it shows: Featured (first row) + exactly 4 regular cards (2 rows on desktop, 2 cards on mobile)
+    // UTIL: visible cards (not display:none)
+    function getVisibleCards() {
+      return Array.from(document.querySelectorAll('#grid .card'))
+        .filter(el => el.style.display !== 'none');
+    }
+
+    // Compute viewport height to show exactly 4 cards before scrolling:
+    // desktop: 2 cols × 2 rows; mobile: 1 col × 4 rows
     function sizeViewport(){
       const viewport = document.getElementById('viewport');
       const grid = document.getElementById('grid');
       if(!viewport || !grid) return;
 
-      const featured = grid.querySelector('.featured');
-      const regular = grid.querySelector('.regular');
-      if(!featured || !regular) return;
-
-      // measurements
       const gcs = getComputedStyle(grid);
       const rowGap = parseFloat(gcs.rowGap || gcs.gap || 0);
       const padTop = parseFloat(gcs.paddingTop || 0);
       const padBot = parseFloat(gcs.paddingBottom || 0);
 
-      const featH = featured.getBoundingClientRect().height;
-      const regH = regular.getBoundingClientRect().height;
+      const isMobile = window.matchMedia('(max-width: 720px)').matches;
+      const cols = isMobile ? 1 : 2;
+      const rowsTarget = isMobile ? 4 : 2; // total tiles visible = cols * rowsTarget (4)
 
-      // how many regular rows to show initially
-      const isMobileOneCol = window.matchMedia('(max-width: 720px)').matches;
-      const regularRowsVisible = 2; // 2 rows -> 4 cards on desktop, 2 cards on mobile
+      const visible = getVisibleCards();
+      if (visible.length === 0) { viewport.style.height = '240px'; return; }
 
-      // visible height = paddingTop + featured + gap + N*reg + (N-1)*gap + paddingBottom
-      const visible = padTop + featH + rowGap + (regularRowsVisible * regH) + ((regularRowsVisible - 1) * rowGap) + padBot;
+      // sample a regular tile height
+      let regH = visible[0].getBoundingClientRect().height || 240;
 
-      viewport.style.height = Math.ceil(visible) + 'px';
+      const rowsAvailable = Math.ceil(visible.length / cols);
+      const rowsVisible = Math.min(rowsTarget, rowsAvailable);
+
+      const visibleHeight = padTop + (rowsVisible * regH) + ((rowsVisible - 1) * rowGap) + padBot;
+      viewport.style.height = Math.ceil(visibleHeight) + 'px';
     }
 
-    window.addEventListener('load', sizeViewport);
+    // Filter logic (month buttons)
+    function applyFilter(month) {
+      const buttons = Array.from(document.querySelectorAll('.filter-btn'));
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === month || (month === 'all' && b.dataset.filter === 'all')));
+
+      const cards = Array.from(document.querySelectorAll('#grid .card'));
+      cards.forEach(card => {
+        const m = card.dataset.month;
+        card.style.display = (month === 'all' || m === month) ? '' : 'none';
+      });
+
+      sizeViewport();
+    }
+
+    // Events
+    document.getElementById('filterBar').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      applyFilter(btn.dataset.filter || 'all');
+    });
+
+    // Init + reflow after images load
+    function init() {
+      sizeViewport();
+      const imgs = document.querySelectorAll('#grid img');
+      let pending = imgs.length;
+      if (!pending) return;
+      imgs.forEach(img => {
+        if (img.complete) { if(--pending===0) sizeViewport(); }
+        else img.addEventListener('load', () => { if(--pending===0) sizeViewport(); }, { once:true });
+      });
+    }
+    window.addEventListener('load', init);
     window.addEventListener('resize', () => {
       clearTimeout(window.__vpTimer);
       window.__vpTimer = setTimeout(sizeViewport, 100);
