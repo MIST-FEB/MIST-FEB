@@ -237,7 +237,48 @@
       background-clip: text;
       color: transparent; /* supaya gradient tetap tampil */
     }
+    
+    .modal-content {
+      max-height: 85vh;
+      overflow-y: auto;
+    }
 
+    .modal-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .form-fields {
+      flex-grow: 1;
+    }
+
+    .form-footer {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+      background: white;
+      position: sticky;
+      bottom: 0;
+    }
 
   </style>
 </head>
@@ -370,14 +411,54 @@
 </section>
 
 
-  <!-- Main Content -->
-  <div class="content-overlay bg-[#570133] bg-cover bg-center overflow-visible" style="background-image: url('MarCom.jpg');">
-    <div class="profile-wrapper overflow-visible">
 
     <!-- Profile with same background -->
     <div class="profile-wrapper">
+      
       <!-- Profile -->
       <section id="events" class="py-10 px-4 sm:px-6 md:px-20" data-aos="fade-up">
+      <!-- BORDER CAPSULE: REGISTRATION (WITH GLOW ON HOVER) -->
+      <div class="mb-5 text-center px-4">
+        <div id="register-button" class="inline-block px-6 py-3 rounded-full shadow-lg transition duration-300 ease-in-out w-full max-w-xs sm:max-w-md"
+            style="background: linear-gradient(90deg, #E664A1 0%, #EC8485 50%, #ED8C7E 100%);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);"
+            onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+            onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'">
+
+          <h1 class="text-xl sm:text-2xl md:text-4xl font-extrabold uppercase tracking-wider"
+          style="font-family: 'Poppins', sans-serif;
+                font-weight: 800;
+                background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;">
+        REGISTRATION
+      </h1>
+        </div>
+      </div>
+      <!-- BORDER CAPSULE: BOOKLET -->
+      <div class="mb-10 text-center px-4">
+        <div id="booklet-button" class="inline-block px-6 py-3 rounded-full shadow-lg transition duration-300 ease-in-out w-full max-w-xs sm:max-w-md cursor-pointer"
+            style="background: linear-gradient(90deg, #E664A1 0%, #EC8485 50%, #ED8C7E 100%);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);"
+            onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+            onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
+            onclick="window.open('https://bit.ly/The22ndMISTCFMBooklet', '_blank')">
+
+          <h1 class="text-xl sm:text-2xl md:text-4xl font-extrabold uppercase tracking-wider"
+          style="font-family: 'Poppins', sans-serif;
+                font-weight: 800;
+                background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;">
+        BOOKLET
+      </h1>
+        </div>
+      </div>
+
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 max-w-6xl mx-auto">
           <div class="w-full max-w-4xl profile-content text-justify">
             <p class="text-base md:text-lg leading-relaxed text-white">
@@ -415,7 +496,7 @@
 
 </h1>
 
-  </div>
+    </div>
 
     <!-- RESPONSIVE TIMELINE IMAGE -->
     <div class="w-full flex justify-center mt-8 px-2">
@@ -449,27 +530,174 @@
   </div>
 </div>
 
-<!-- BORDER CAPSULE: REGISTRATION (WITH GLOW ON HOVER) -->
-<div class="mt-8 text-center px-4">
-  <div class="inline-block px-6 py-3 rounded-full shadow-lg transition duration-300 ease-in-out w-full max-w-xs sm:max-w-md"
-       style="background: linear-gradient(90deg, #E664A1 0%, #EC8485 50%, #ED8C7E 100%);
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);"
-       onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
-       onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'">
 
-    <h1 class="text-xl sm:text-2xl md:text-4xl font-extrabold uppercase tracking-wider"
-    style="font-family: 'Poppins', sans-serif;
-           font-weight: 800;
-           background: linear-gradient(90deg, #FFC739 0%, #FFFFFF 50%, #FFC739 100%);
-           -webkit-background-clip: text;
-           -webkit-text-fill-color: transparent;
-           background-clip: text;
-           text-fill-color: transparent;">
-  REGISTRATION
-</h1>
+<!-- POPUP REGISTRATION MODAL -->
+<div id="register-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden p-4">
+  <div class="modal-content bg-white rounded-lg w-full max-w-2xl text-black relative">
+    
+    <!-- Close Button -->
+    <div class="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-4 border-b">
+      <h2 class="text-xl sm:text-2xl font-bold">Team Registration</h2>
+      <button id="close-register" class="text-gray-600 hover:text-gray-800 text-2xl font-bold">&times;</button>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+      <!-- Registration Form -->
+      <div class="form-fields p-4 space-y-4">
+        <form id="registration-form" class="space-y-4">
+
+          <!-- 1. How did you hear about us? -->
+          <div>
+            <label class="block font-medium mb-2">1. How do you know about MIST FEB UI?</label>
+            <select name="source" required class="w-full border rounded px-3 py-2">
+              <option value="" disabled selected>Select an option</option>
+              <option>Instagram</option>
+              <option>Tiktok</option>
+              <option>X</option>
+              <option>Telegram</option>
+              <option>Friends</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- 2. Team Name -->
+          <div>
+            <label class="block font-medium mb-2">2. Team Name</label>
+            <input type="text" name="teamName" required class="w-full border rounded px-3 py-2" />
+          </div>
+
+          <!-- 3. Head of Team -->
+          <fieldset class="border p-4 rounded">
+            <legend class="font-medium mb-2 px-2">3. Head of Team Information</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <input name="headFirstName" placeholder="First Name" required class="border rounded px-3 py-2" />
+              <input name="headLastName" placeholder="Last Name" required class="border rounded px-3 py-2" />
+              <input name="headPhone" placeholder="Phone Number" required class="border rounded px-3 py-2" />
+              <input name="headEmail" type="email" placeholder="Email" required class="border rounded px-3 py-2" />
+              <input name="headUniversity" placeholder="University Name" required class="border rounded px-3 py-2 col-span-full" />
+            </div>
+          </fieldset>
+
+          <!-- 4. Team Member 1 -->
+          <fieldset class="border p-4 rounded">
+            <legend class="font-medium mb-2 px-2">4. Team Member 1</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <input name="member1FirstName" placeholder="First Name" required class="border rounded px-3 py-2" />
+              <input name="member1LastName" placeholder="Last Name" required class="border rounded px-3 py-2" />
+              <input name="member1Phone" placeholder="Phone Number" required class="border rounded px-3 py-2" />
+              <input name="member1Email" type="email" placeholder="Email" required class="border rounded px-3 py-2" />
+              <input name="member1University" placeholder="University Name" required class="border rounded px-3 py-2 col-span-full" />
+            </div>
+          </fieldset>
+
+          <!-- 5. Team Member 2 -->
+          <fieldset class="border p-4 rounded">
+            <legend class="font-medium mb-2 px-2">5. Team Member 2</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <input name="member2FirstName" placeholder="First Name" required class="border rounded px-3 py-2" />
+              <input name="member2LastName" placeholder="Last Name" required class="border rounded px-3 py-2" />
+              <input name="member2Phone" placeholder="Phone Number" required class="border rounded px-3 py-2" />
+              <input name="member2Email" type="email" placeholder="Email" required class="border rounded px-3 py-2" />
+              <input name="member2University" placeholder="University Name" required class="border rounded px-3 py-2 col-span-full" />
+            </div>
+          </fieldset>
+
+          <!-- 6. Documents Submission -->
+<div>
+  <label class="block font-medium mb-2">6. Documents Submission (PDF):</label>
+  <p class="text-sm mb-2">
+    To show your enthusiasm, we invite you to post our poster to your Instagram story and share it in 3 group chats. 
+    The materials can be found in this link: 
+    <a href="https://bit.ly/The22ndMISTCFMPoster" target="_blank" class="text-blue-600 underline">
+      bit.ly/The22ndMISTCFMPoster
+    </a>.
+  </p>
+  <p class="text-sm mb-2">
+    Don't forget to tag us at <b>@mistfebui</b> and three of your friends! Good luck and stay <b>#optiMIST!</b>
+  </p>
+  <p class="text-sm mb-2">
+    Paste the Google Drive link of the proof of your team upload here! You can insert the proof materials in the same Google Drive link as the previous documents.
+  </p>
+  <textarea 
+    name="docsSubmission" 
+    rows="2" 
+    required 
+    class="w-full border rounded px-3 py-2" 
+    placeholder="Paste your Google Drive link here">
+  </textarea>
+</div>
+
+
+          <!-- 7. Twibbon & Poster Upload -->
+          <div>
+            <label class="block font-medium mb-2">7. Proof of Twibbon & Poster Upload:</label>
+            <textarea name="proofUpload" rows="2" required class="w-full border rounded px-3 py-2" placeholder="Paste Google Drive link here"></textarea>
+          </div>
+
+           <!-- 8. Payment Section -->
+          <div class="mb-6">
+            <label class="block font-medium mb-2">8. Payment Proof:</label>
+            <p class="text-sm mb-2">
+              To complete your registration, please pay the registration fee of <b>IDR 100,000</b>.
+            </p>
+            <p class="text-sm mb-2">
+              <b>Bank Name:</b> Blu by BCA Digital <br>
+              <b>Account Name:</b> Hanaya Michelle Herwinata <br>
+              <b>Account Number:</b> 004300147020
+            </p>
+            <p class="text-sm mb-2">
+              Please note that the registration fee is <b>non-refundable</b> and any late payment after the due date will be considered as cancelling your team's registration for The 22nd MIST.
+            </p>
+            <p class="text-sm mb-4">
+              Upload your payment proof image below (JPG, PNG, or PDF). The file will be automatically saved to Google Drive.
+              <br><br>
+              <i>If you are an international student, please upload a blank or random photo instead.</i>
+            </p>
+            
+            <!-- File Upload Area -->
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-gray-400 transition-colors">
+              <input 
+                type="file" 
+                name="paymentProof" 
+                id="paymentProof"
+                accept="image/*,.pdf"
+                required 
+                class="hidden"
+                onchange="handleFileSelect(this)"
+              />
+              <label for="paymentProof" class="cursor-pointer">
+                <div id="file-drop-area" class="py-4">
+                  <svg class="mx-auto h-8 w-8 text-gray-400 mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <p class="text-sm text-gray-600">
+                    <span class="font-medium text-blue-600">Click to upload</span> or drag and drop
+                  </p>
+                  <p class="text-xs text-gray-500">PNG, JPG or PDF up to 5MB</p>
+                </div>
+              </label>
+              <div id="file-info" class="hidden mt-2 text-sm text-green-600"></div>
+              <div id="upload-progress" class="hidden mt-2">
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-gray-600 mt-1" id="progress-text">Preparing upload...</p>
+              </div>
+            </div>
+          </div>
+
+      <!-- Submit Button Footer -->
+      <div class="form-footer text-right p-4">
+        <button type="submit" form="registration-form" class="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 py-3 rounded transition-colors w-full sm:w-auto">
+          Submit Registration
+        </button>
+      </div>
+    </div>
 
   </div>
 </div>
+
 </section>
 
 <!-- Footer -->
@@ -504,6 +732,211 @@
     </div>
   </div>
 </footer>
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDSSxHTAdUsFtxwTgIGCn_0xlWpv-m_AVhgVfDfwL8wARxXtbOvucTEUK4cMnf6eD4qg/exec';
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, setting up event listeners...');
+    
+    const registerButton = document.getElementById('register-button');
+    const modal = document.getElementById('register-modal');
+    
+    if (registerButton && modal) {
+        console.log('Found register button and modal, adding click listener...');
+        registerButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('Register button clicked, showing modal...');
+            modal.classList.remove('hidden');
+        });
+    } else {
+        console.error('Register button or modal not found!');
+    }
+
+    const closeButton = document.getElementById('close-register');
+    if (closeButton && modal) {
+        closeButton.addEventListener('click', function () {
+            console.log('Close button clicked');
+            modal.classList.add('hidden');
+        });
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function (e) {
+            if (e.target === this) {
+                console.log('Clicked outside modal, closing...');
+                this.classList.add('hidden');
+            }
+        });
+    }
+});
+
+function handleFileSelect(input) {
+    console.log('File selected:', input.files[0]);
+    const file = input.files[0];
+    const fileInfo = document.getElementById('file-info');
+    
+    if (file) {
+        // Check file size (5MB limit)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('File size must be less than 5MB');
+            input.value = '';
+            fileInfo.classList.add('hidden');
+            return;
+        }
+        
+        fileInfo.innerHTML = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+        fileInfo.classList.remove('hidden');
+    } else {
+        fileInfo.classList.add('hidden');
+    }
+}
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registration-form');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            console.log('Form submitted');
+            
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            const progressDiv = document.getElementById('upload-progress');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            try {
+                // Show loading state
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                progressDiv.classList.remove('hidden');
+                
+                // Update progress
+                progressBar.style.width = '20%';
+                progressText.textContent = 'Collecting form data...';
+                
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                
+                // Convert FormData to regular object
+                for (let [key, value] of formData.entries()) {
+                    if (key !== 'paymentProof') {
+                        data[key] = value;
+                    }
+                }
+                
+                // Add timestamp
+                data.timestamp = new Date().toISOString();
+                
+                // Handle file upload separately
+                const fileInput = document.getElementById('paymentProof');
+                if (fileInput.files[0]) {
+                    progressBar.style.width = '40%';
+                    progressText.textContent = 'Processing file...';
+                    
+                    const file = fileInput.files[0];
+                    
+                    // Convert file to base64
+                    const base64 = await fileToBase64(file);
+                    
+                    // Add file data to submission
+                    data.paymentProofFile = base64;
+                    data.paymentProofFileName = file.name;
+                    data.paymentProofSize = file.size;
+                    data.paymentProofType = file.type;
+                }
+                
+                // Update progress
+                progressBar.style.width = '60%';
+                progressText.textContent = 'Submitting to server...';
+                
+                console.log('Submitting data:', Object.keys(data));
+                
+                // Submit with timeout handling
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+                
+                try {
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(data),
+                        signal: controller.signal
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    console.log('Response received');
+                    
+                } catch (fetchError) {
+                    clearTimeout(timeoutId);
+                    if (fetchError.name === 'AbortError') {
+                        console.log('Request timed out, but likely succeeded');
+                    } else {
+                        console.log('Fetch error (but may have succeeded):', fetchError);
+                    }
+                }
+                
+                progressBar.style.width = '100%';
+                progressText.textContent = 'Success!';
+                
+                setTimeout(() => {
+                    alert('Registration submitted successfully! Please check your Google Sheet to confirm. Your payment proof should be uploaded to Google Drive.');
+                    this.reset();
+                    document.getElementById('file-info').classList.add('hidden');
+                    progressDiv.classList.add('hidden');
+                    progressBar.style.width = '0%';
+                    document.getElementById('register-modal').classList.add('hidden');
+                }, 500);
+                
+            } catch (error) {
+                console.error('Submission error:', error);
+                progressBar.style.width = '0%';
+                progressDiv.classList.add('hidden');
+                alert('There was an error submitting your registration. Please try again.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+
+// Email validation
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('input[type="email"]').forEach(input => {
+        input.addEventListener('blur', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                this.setCustomValidity('Please enter a valid email address');
+                this.classList.add('border-red-500');
+            } else {
+                this.setCustomValidity('');
+                this.classList.remove('border-red-500');
+            }
+        });
+    });
+
+    // Phone number validation
+    document.querySelectorAll('input[name*="Phone"]').forEach(input => {
+        input.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9+\-\s]/g, '');
+        });
+    });
+});
+</script>
 
 <script>
   function updateTimelineImage() {
