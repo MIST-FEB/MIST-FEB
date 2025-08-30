@@ -1,0 +1,145 @@
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSheet();
+
+    // --- ambil data teks ---
+    const p = e && e.parameter ? e.parameter : {};
+    // --- ambil file upload (kalau ada) ---
+    // input <input type="file" name="paymentProof">
+    const fileBlob = e && e.files && e.files.paymentProof ? e.files.paymentProof : null;
+
+    // siapkan folder Drive
+    const folderName = 'MIST Registration Files';
+    const folder = getOrCreateFolder_(folderName);
+
+    // simpan file (kalau ada), balikin link Drive
+    let paymentProofUrl = 'No file uploaded';
+    if (fileBlob) {
+      const url = saveFileToGoogleDrive_(folder, fileBlob, (p.teamName || 'Unknown Team'));
+      if (url) paymentProofUrl = url;
+    }
+
+    // buat header kalau sheet masih kosong
+    if (sheet.getLastRow() === 0) {
+      const headers = [
+        'Timestamp',
+        'Source',
+        'Team Name',
+        'Head First Name',
+        'Head Last Name',
+        'Head Phone',
+        'Head Email',
+        'Head University',
+        'Member 1 First Name',
+        'Member 1 Last Name',
+        'Member 1 Phone',
+        'Member 1 Email',
+        'Member 1 University',
+        'Member 2 First Name',
+        'Member 2 Last Name',
+        'Member 2 Phone',
+        'Member 2 Email',
+        'Member 2 University',
+        'Documents Submission',
+        'Proof Upload',
+        'Payment Proof'
+      ];
+      sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    }
+
+    // tulis 1 baris data
+    const row = [
+      new Date().toISOString(),
+      p.source || '',
+      p.teamName || '',
+      p.headFirstName || '',
+      p.headLastName || '',
+      p.headPhone || '',
+      p.headEmail || '',
+      p.headUniversity || '',
+      p.member1FirstName || '',
+      p.member1LastName || '',
+      p.member1Phone || '',
+      p.member1Email || '',
+      p.member1University || '',
+      p.member2FirstName || '',
+      p.member2LastName || '',
+      p.member2Phone || '',
+      p.member2Email || '',
+      p.member2University || '',
+      p.docsSubmission || '',   // link GDrive dokumen PDF (dari textarea)
+      p.proofUpload || '',      // “blank/random photo” untuk international
+      paymentProofUrl           // <-- ini link GDrive hasil upload
+    ];
+    sheet.appendRow(row);
+
+    sendEmailNotification_(p, paymentProofUrl);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ success: true, message: 'Registration submitted successfully' }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    Logger.log('Error: ' + err);
+    return ContentService
+      .createTextOutput(JSON.stringify({ success: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function getOrCreateFolder_(name) {
+  const it = DriveApp.getFoldersByName(name);
+  return it.hasNext() ? it.next() : DriveApp.createFolder(name);
+}
+
+function saveFileToGoogleDrive_(folder, blob, teamName) {
+  try {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const safeTeam = (teamName || 'UnknownTeam').replace(/[^\w\- ]+/g, '_');
+    const baseName = `${safeTeam}_PaymentProof_${timestamp}`;
+    // Pakai nama asli kalau ada ekstensinya, else setName pakai baseName
+    const file = blob.getName()
+      ? folder.createFile(blob)                 // sudah ada nama + ext dari browser
+      : folder.createFile(blob.setName(baseName));
+
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    return file.getUrl();
+  } catch (err) {
+    Logger.log('File upload error: ' + err);
+    return '';
+  }
+}
+
+function sendEmailNotification_(p, fileUrl) {
+  const subject = 'New MIST Registration: ' + (p.teamName || 'Unknown Team');
+  const body =
+`New team registration received:
+
+Team Name: ${p.teamName || 'Not provided'}
+Head of Team: ${p.headFirstName || ''} ${p.headLastName || ''}
+Email: ${p.headEmail || 'Not provided'}
+University: ${p.headUniversity || 'Not provided'}
+
+Team Members:
+1) ${p.member1FirstName || ''} ${p.member1LastName || ''} (${p.member1Email || 'Not provided'})
+2) ${p.member2FirstName || ''} ${p.member2LastName || ''} (${p.member2Email || 'Not provided'})
+
+Documents: ${p.docsSubmission || 'Not provided'}
+Proof Upload: ${p.proofUpload || 'Not provided'}
+Payment Proof File: ${fileUrl || 'No file uploaded'}
+
+Submitted at: ${new Date().toISOString()}
+`;
+  try {
+    MailApp.sendEmail('yogasatoe@gmail.com', subject, body);
+  } catch (err) {
+    Logger.log('Email send error: ' + err);
+  }
+}
+
+// Opsional: tampilkan form (kalau kamu pakai Web App yang serve HTML sendiri)
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile('form')
+    .setTitle('MIST Registration')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
