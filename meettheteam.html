@@ -15,11 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root{
       --banner-max: 400px;      /* top Managing Executives image size */
       --role-width: 320px;      /* desktop width of each role image */
@@ -36,238 +32,69 @@
       color: white;
     }
 
-    .team-section {
-      min-height: 100vh;
-      padding: 100px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .team-section { min-height: 100vh; padding: 100px 20px 60px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .team-title { font-size: 64px; font-weight: 900; text-transform: uppercase; background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; margin-bottom: 40px; }
 
-    .team-title {
-      font-size: 64px;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #ffe59f, #ffffff 50%, #ffe59f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 40px;
-    }
+    .team-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px; }
+    .team-role { display: flex; flex-direction: column; align-items: center; max-width: 180px; font-weight: bold; }
+    .photo-box { width: 100px; height: 100px; background-color: white; border-radius: 12px; margin-bottom: 10px; }
 
-    .team-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .team-role {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 180px;
-      font-weight: bold;
-    }
-
-    .photo-box {
-      width: 100px;
-      height: 100px;
-      background-color: white;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .meet-btn {
-      background: linear-gradient(90deg, #f99f67, #ea4aaa);
-      border: none;
-      color: white;
-      padding: 14px 36px;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-      text-decoration: none;
-    }
-
-    .meet-btn:hover {
-      transform: scale(1.05);
-    }
+    .meet-btn { background: linear-gradient(90deg, #f99f67, #ea4aaa); border: none; color: white; padding: 14px 36px; border-radius: 25px; font-size: 16px; cursor: pointer; font-weight: bold; transition: transform 0.2s ease; text-decoration: none; }
+    .meet-btn:hover { transform: scale(1.05); }
 
     @media (max-width: 600px) {
-      .team-title {
-        font-size: 42px;
-      }
-
-      .photo-box {
-        width: 80px;
-        height: 80px;
-      }
-
-      .meet-btn {
-        font-size: 14px;
-        padding: 12px 28px;
-      }
+      .team-title { font-size: 42px; }
+      .photo-box { width: 80px; height: 80px; }
+      .meet-btn { font-size: 14px; padding: 12px 28px; }
     }
 
-    .bg-mist-purple {
-      background-color: #570133 !important;
-    }
+    .bg-mist-purple { background-color: #570133 !important; }
+    .gradient-bg { background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important; }
+    nav { background: #570133 !important; }
 
-    .gradient-bg {
-      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
-    }
-
-        nav {
-      background: #570133 !important;
-    }
-
-    .nav-link {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-link:hover {
-      color: #fcd770;
-    }
-
-    .nav-link:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%);
-      transition: width 0.3s;
-    }
-
-    .nav-link:hover:after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      color: #fcd770;
-    }
-
-    .nav-link.active::after {
-      width: 100%;
-    }
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link:hover { color: #fcd770; }
+    .nav-link:after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%); transition: width 0.3s; }
+    .nav-link:hover:after { width: 100%; }
+    .nav-link.active { color: #fcd770; }
+    .nav-link.active::after { width: 100%; }
 
     /* Ensure the dropdown appears above all */
-    .dropdown-menu {
-      background-color: #570133 !important;
-      border: 2px solid #FFC739 !important;
-    }
+    .dropdown-menu { background-color: #570133 !important; border: 2px solid #FFC739 !important; }
+    .dropdown-link { position: relative; display: block; padding: 0.75rem 1.25rem; transition: all 0.3s ease-in-out; }
+    .dropdown-link:hover { background-color: #FFC739; color: #570133; }
+    .dropdown-link::after { content: ''; position: absolute; bottom: 0.4rem; left: 1.25rem; height: 2px; width: calc(100% - 2.5rem); background-color: #570133; transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease-in-out; }
+    .dropdown-link:hover::after { transform: scaleX(1); }
 
-    .dropdown-link {
-      position: relative;
-      display: block;
-      padding: 0.75rem 1.25rem;
-      transition: all 0.3s ease-in-out;
-    }
-    
-    .dropdown-link:hover {
-      background-color: #FFC739;
-      color: #570133;
-    }
+    ul li a:hover { text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); }
+    .group:hover .group-hover\:opacity-100 { opacity: 1; }
+    .group:hover .group-hover\:visible { visibility: visible; }
 
-    .dropdown-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0.4rem;
-      left: 1.25rem;
-      height: 2px;
-      width: calc(100% - 2.5rem);
-      background-color: #570133;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .dropdown-link:hover::after {
-      transform: scaleX(1);
-    }
-
-    ul li a:hover {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-    }
-
-    .group:hover .group-hover\:opacity-100 {
-      opacity: 1;
-    }
-    .group:hover .group-hover\:visible {
-      visibility: visible;
-    }
     /* Big banner (top) */
-    .team-photo-banner{
-      width: 100%;
-      max-width: var(--banner-max);
-      height: auto;
-      display: block;
-      margin: 0 auto 48px;
-      border-radius: 16px;
-    }
+    .team-photo-banner{ width: 100%; max-width: var(--banner-max); height: auto; display: block; margin: 0 auto 48px; border-radius: 16px; }
 
-    .roles-grid{
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto 56px;
-      display: grid;
-      gap: var(--role-gap);
-      justify-content: center;              /* center fixed-width columns */
-    }
+    .roles-grid{ width: 100%; max-width: 1400px; margin: 0 auto 56px; display: grid; gap: var(--role-gap); justify-content: center; }
 
-    /* Grid rows */
-    .roles-grid.top {
-      display: grid;
-      grid-template-columns: repeat(4, var(--role-width));
-      gap: 32px;
-      justify-content: center;
-      align-items: end;   /* ensure bottoms align */
-    }
-    .roles-grid.bottom {
-      display: grid;
-      grid-template-columns: repeat(5, var(--role-width));
-      gap: 32px;
-      justify-content: center;
-      align-items: end;   /* ensure bottoms align */
-    }
+    .roles-grid.top { display: grid; grid-template-columns: repeat(4, var(--role-width)); gap: 32px; justify-content: center; align-items: end; }
+    .roles-grid.bottom { display: grid; grid-template-columns: repeat(5, var(--role-width)); gap: 32px; justify-content: center; align-items: end; }
 
-    /* Role images forced into equal box */
-    .role-img {
-      width: 100%;
-      height: var(--role-height); /* lock uniform height */
-      object-fit: contain;        /* keep full image, may add blank space */
-      display: block;
-      border-radius: 12px;
-      padding: 8px;               /* optional: inner margin so text doesn’t touch edge */
-    }
+    .role-img { width: 100%; height: var(--role-height); object-fit: contain; display: block; border-radius: 12px; padding: 8px; }
 
     /* ===== RESPONSIVE OVERRIDES ===== */
-    @media (max-width: 1200px) {
-      :root { --role-width: 280px; --role-height: 210px; }
-      .roles-grid.top { grid-template-columns: repeat(3, var(--role-width)); }
-      .roles-grid.bottom { grid-template-columns: repeat(3, var(--role-width)); }
-    }
-    @media (max-width: 900px) {
-      :root { --role-width: 220px; --role-height: 180px; }
-      .roles-grid.top, .roles-grid.bottom { grid-template-columns: repeat(2, var(--role-width)); }
-    }
-    @media (max-width: 560px) {
-      :root { --role-width: 90vw; --role-height: 68vw; }
-      .roles-grid.top, .roles-grid.bottom { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1200px) { :root { --role-width: 280px; --role-height: 210px; } .roles-grid.top { grid-template-columns: repeat(3, var(--role-width)); } .roles-grid.bottom { grid-template-columns: repeat(3, var(--role-width)); } }
+    @media (max-width: 900px) { :root { --role-width: 220px; --role-height: 180px; } .roles-grid.top, .roles-grid.bottom { grid-template-columns: repeat(2, var(--role-width)); } }
+    @media (max-width: 560px) { :root { --role-width: 90vw; --role-height: 68vw; } .roles-grid.top, .roles-grid.bottom { grid-template-columns: 1fr; } }
 
+    /* ===== Modal ===== */
+    .modal-content { max-height: 85vh; overflow-y: auto; }
+    .modal-content::-webkit-scrollbar { width: 8px; }
+    .modal-content::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+    .modal-content::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+    .modal-content::-webkit-scrollbar-thumb:hover { background: #555; }
   </style>
 </head>
 <body>
 <!-- ====== NAVBAR START ====== -->
-<!-- Navbar -->
   <nav class="relative w-full bg-mist-purple z-50">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
       <!-- Logo -->
@@ -349,10 +176,6 @@
     </div>
   </nav>
 
-  <!-- ====== NAVBAR END ====== -->
-
-
-
   <!-- ====== TEAM SECTION START ====== -->
 <section class="team-section">
   <h1 class="team-title">MEET THE TEAM</h1>
@@ -380,15 +203,145 @@
       <img src="img/CORPORATE PARTNERSHIP.png" alt="Corporate Partnership" class="role-img" />
     </div>
 
-
-  </div>
-
-  <a href="#" class="meet-btn">Junior Managers Registration</a>
+  <a href="#" id="open-registration" class="meet-btn">Junior Managers Registration</a>
 </section>
 
-
-  
   <!-- ====== TEAM SECTION END ====== -->
+
+  <!-- ====== REGISTRATION MODAL ====== -->
+  <div id="jm-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden p-4">
+    <div class="modal-content bg-white rounded-lg w-full max-w-3xl text-black relative">
+      <!-- Header -->
+      <div class="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-4 border-b">
+        <h2 class="text-xl sm:text-2xl font-bold">Junior Managers Registration</h2>
+        <button id="close-jm" class="text-gray-600 hover:text-gray-800 text-2xl font-bold" aria-label="Close registration modal">&times;</button>
+      </div>
+
+      <!-- Form -->
+      <form id="jm-form" class="p-4 space-y-5">
+        <!-- Helper note -->
+        <p class="text-sm text-gray-600">Unless noted otherwise, type your answer as <span class="italic">"Type your answer here"</span>. For Email, use the format <code>name@example.com</code>.</p>
+
+        <!-- 1. Full Name -->
+        <div>
+          <label class="block font-medium mb-2">1. Your Full Name</label>
+          <input name="fullName" type="text" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- 2. Major -->
+        <div>
+          <label class="block font-medium mb-2">2. Your Major</label>
+          <select name="major" required class="w-full border rounded px-3 py-2">
+            <option value="" disabled selected>Select a major</option>
+            <option>Management</option>
+            <option>Economics</option>
+            <option>Accounting</option>
+            <option>Islamic Business</option>
+            <option>Islamic Economics</option>
+          </select>
+        </div>
+
+        <!-- 3. Program -->
+        <div>
+          <label class="block font-medium mb-2">3. Program</label>
+          <select name="program" required class="w-full border rounded px-3 py-2">
+            <option value="" disabled selected>Select a program</option>
+            <option>Reguler</option>
+            <option>KKI</option>
+          </select>
+        </div>
+
+        <!-- 4. Phone Number -->
+        <div>
+          <label class="block font-medium mb-2">4. Phone Number</label>
+          <input name="phone" type="tel" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- 5. Email -->
+        <div>
+          <label class="block font-medium mb-2">5. Email <span class="text-gray-500 font-normal">(show as name@example.com)</span></label>
+          <input name="email" type="email" required placeholder="name@example.com" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- 6. LINE ID -->
+        <div>
+          <label class="block font-medium mb-2">6. LINE ID</label>
+          <input name="lineId" type="text" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- 7. First Division of Choice + Why -->
+        <fieldset class="border rounded p-4">
+          <legend class="font-medium px-2">7. First Division of Choice</legend>
+          <div class="grid gap-3">
+            <select name="firstDivision" required class="w-full border rounded px-3 py-2">
+              <option value="" disabled selected>Select a division</option>
+              <option>Public Relations</option>
+              <option>Conference Organizer</option>
+              <option>Event Runner</option>
+              <option>Strategic Delegates and Outreach</option>
+              <option>Supply Coordinator</option>
+              <option>Creative Media Partnership</option>
+              <option>Visual Marketing</option>
+              <option>Inkind Partnership</option>
+              <option>Corporate Partnership</option>
+            </select>
+            <label class="block font-medium">Why do you want to join your First Division of choice?</label>
+            <textarea name="firstWhy" rows="3" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 8. Second Division of Choice + Why -->
+        <fieldset class="border rounded p-4">
+          <legend class="font-medium px-2">8. Second Division of Choice</legend>
+          <div class="grid gap-3">
+            <select name="secondDivision" required class="w-full border rounded px-3 py-2">
+              <option value="" disabled selected>Select a division</option>
+              <option>Public Relations</option>
+              <option>Conference Organizer</option>
+              <option>Event Runner</option>
+              <option>Strategic Delegates and Outreach</option>
+              <option>Supply Coordinator</option>
+              <option>Creative Media Partnership</option>
+              <option>Visual Marketing</option>
+              <option>Inkind Partnership</option>
+              <option>Corporate Partnership</option>
+            </select>
+            <label class="block font-medium">Why do you want to join your Second Division of choice?</label>
+            <textarea name="secondWhy" rows="3" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 9. Least Preferred Division + Reason -->
+        <fieldset class="border rounded p-4">
+          <legend class="font-medium px-2">9. Least Preferred Division</legend>
+          <div class="grid gap-3">
+            <select name="leastDivision" required class="w-full border rounded px-3 py-2">
+              <option value="" disabled selected>Select a division</option>
+              <option>Public Relations</option>
+              <option>Conference Organizer</option>
+              <option>Event Runner</option>
+              <option>Strategic Delegates and Outreach</option>
+              <option>Supply Coordinator</option>
+              <option>Creative Media Partnership</option>
+              <option>Visual Marketing</option>
+              <option>Inkind Partnership</option>
+              <option>Corporate Partnership</option>
+            </select>
+            <label class="block font-medium">What is your reason?</label>
+            <textarea name="leastReason" rows="3" required placeholder="Type your answer here" class="w-full border rounded px-3 py-2"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Submit -->
+        <div class="p-2 pt-0 text-right">
+          <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 py-3 rounded transition-colors w-full sm:w-auto">Submit Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== APPS SCRIPT URL ====== -->
+  <!-- APPS_SCRIPT_URL is now declared only once in the main JS below -->
 
   <!-- ====== FOOTER START ====== -->
   <footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full">
@@ -423,8 +376,9 @@
   </footer>
   <!-- ====== FOOTER END ====== -->
 
-  <!-- ====== NAVBAR JS ====== -->
+  <!-- ====== NAVBAR & MODAL JS ====== -->
   <script>
+    // Navbar toggles
     document.getElementById('menu-toggle').addEventListener('click', function () {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
@@ -436,6 +390,129 @@
       submenu.classList.toggle('hidden');
       arrow.classList.toggle('rotate-180');
     });
+
+    // Modal open/close
+    const openBtn = document.getElementById('open-registration');
+    const modal = document.getElementById('jm-modal');
+    const closeBtn = document.getElementById('close-jm');
+
+    openBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.remove('hidden'); });
+    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+    // Simple validations
+    document.querySelectorAll('input[name="phone"]').forEach(input => {
+      input.addEventListener('input', function() { this.value = this.value.replace(/[^0-9+\-\s]/g, ''); });
+    });
+
+    document.querySelectorAll('input[type="email"]').forEach(input => {
+      input.addEventListener('blur', function() {
+        const email = this.value; const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email && !re.test(email)) { this.setCustomValidity('Please enter a valid email (e.g., name@example.com)'); this.classList.add('border-red-500'); }
+        else { this.setCustomValidity(''); this.classList.remove('border-red-500'); }
+      });
+    });
+
+    // === Google Apps Script endpoint ===
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUs37fZcMzyDLntTmufmt4rrmG2PxMhB82Q2dsgns32hZWrVfeRnozC2mNbII8YESZRw/exec';
+
+    // Submit handler: send to Apps Script (writes to Google Sheet)
+    document.getElementById('jm-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      // Collect form data
+      const formData = new FormData(this);
+      // Add timestamp on client-side too (server will also add)
+      formData.append('timestamp', new Date().toISOString());
+
+      try {
+        // Convert to application/x-www-form-urlencoded for Apps Script
+        const body = new URLSearchParams();
+        for (const [k, v] of formData.entries()) body.append(k, v);
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        const res = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+          signal: controller.signal,
+          // If your Apps Script is deployed with "Anyone" access, CORS is usually fine.
+        });
+        clearTimeout(timeoutId);
+
+        // Try to parse JSON; fallback to text
+        let payload;
+        const text = await res.text();
+        try { payload = JSON.parse(text); } catch { payload = { ok: res.ok, message: text }; }
+
+        if (!res.ok || payload?.ok === false) {
+          throw new Error(payload?.message || 'Submission failed');
+        }
+
+        alert(payload?.message || 'Registration submitted successfully!');
+        this.reset();
+        document.getElementById('jm-modal').classList.add('hidden');
+      } catch (err) {
+        alert('Gagal submit: ' + (err?.message || err));
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
   </script>
+
+<!-- Enhanced navbar toggles (mobile + a11y + esc close) -->
+<script>
+(function(){
+  var body = document.body;
+  var menuBtn = document.getElementById('menu-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var aboutToggle = document.getElementById('about-toggle');
+  var aboutArrow = document.getElementById('about-arrow');
+  var aboutSubmenu = document.getElementById('about-submenu');
+
+  function openMenu(){ if(!mobileMenu) return; mobileMenu.classList.remove('hidden'); body.classList.add('overflow-hidden'); if(menuBtn) menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ if(!mobileMenu) return; mobileMenu.classList.add('hidden'); body.classList.remove('overflow-hidden'); if(menuBtn) menuBtn.setAttribute('aria-expanded','false'); if(aboutSubmenu && !aboutSubmenu.classList.contains('hidden')) { aboutSubmenu.classList.add('hidden'); if(aboutArrow) aboutArrow.classList.remove('rotate-180'); } }
+
+  if (menuBtn && mobileMenu){
+    menuBtn.setAttribute('aria-controls','mobile-menu');
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.addEventListener('click', function(){
+      var isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) openMenu(); else closeMenu();
+    });
+
+    // close on ESC
+    window.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMenu(); });
+    // close when clicking any link
+    var links = mobileMenu.querySelectorAll('a');
+    for (var i=0;i<links.length;i++){ links[i].addEventListener('click', closeMenu); }
+  }
+
+  if (aboutToggle && aboutSubmenu){
+    aboutToggle.setAttribute('aria-expanded','false');
+    aboutToggle.addEventListener('click', function(){
+      var hidden = aboutSubmenu.classList.toggle('hidden');
+      if (aboutArrow){ if (hidden) aboutArrow.classList.remove('rotate-180'); else aboutArrow.classList.add('rotate-180'); }
+      aboutToggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+    });
+  }
+
+  // Highlight current page in desktop nav
+  var path = location.pathname.split('/').pop();
+  var navLinks = document.querySelectorAll('nav a.nav-link');
+  for (var j=0;j<navLinks.length;j++){
+    var href = navLinks[j].getAttribute('href');
+    if (href && href === path) { navLinks[j].classList.add('active'); }
+  }
+})();
+</script>
+
 </body>
 </html>
