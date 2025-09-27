@@ -381,141 +381,148 @@
 
   <!-- ====== NAVBAR & MODAL JS ====== -->
   <script>
-    // Navbar toggles
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
+  // ====== NAVBAR TOGGLES ======
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
 
-    document.getElementById('about-toggle').addEventListener('click', function () {
-      const submenu = document.getElementById('about-submenu');
-      const arrow = document.getElementById('about-arrow');
-      submenu.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    });
+  document.getElementById('about-toggle').addEventListener('click', function () {
+    const submenu = document.getElementById('about-submenu');
+    const arrow = document.getElementById('about-arrow');
+    submenu.classList.toggle('hidden');
+    arrow.classList.toggle('rotate-180');
+  });
 
-    // Modal open/close
-    const openBtn = document.getElementById('open-registration');
-    const modal = document.getElementById('jm-modal');
-    const closeBtn = document.getElementById('close-jm');
+  // ====== REGISTRATION STATE (toggle di sini) ======
+  // Set ke true kalau mau dibuka lagi.
+  const REGISTRATION_OPEN = false;
 
-    openBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.remove('hidden'); });
-    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+  // ====== MODAL OPEN/CLOSE ======
+  const openBtn  = document.getElementById('open-registration');
+  const modal    = document.getElementById('jm-modal');
+  const closeBtn = document.getElementById('close-jm');
+  const formEl   = document.getElementById('jm-form');
+  const titleEl  = modal.querySelector('h2');
 
-    // Simple validations
-    document.querySelectorAll('input[name="phone"]').forEach(input => {
-      input.addEventListener('input', function() { this.value = this.value.replace(/[^0-9+\-\s]/g, ''); });
-    });
+  // Elemen pesan "Closed"
+  const closedBox = document.createElement('div');
+  closedBox.id = 'closed-note';
+  closedBox.className = 'p-8 text-center space-y-4';
+  closedBox.innerHTML = `
+    <p class="text-lg text-gray-800 font-semibold">Junior Managers registration is <span class="underline">closed</span>.</p>
+    <p class="text-gray-700">Thank you for your interest. Please follow our updates for the next opening.</p>
+    <a href="https://www.instagram.com/mistfebui/" target="_blank"
+       class="inline-block bg-purple-700 hover:bg-purple-800 text-white font-semibold px-5 py-3 rounded">
+       Follow updates on Instagram
+    </a>
+  `;
 
-    document.querySelectorAll('input[type="email"]').forEach(input => {
-      input.addEventListener('blur', function() {
-        const email = this.value; const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (email && !re.test(email)) { this.setCustomValidity('Please enter a valid email (e.g., name@example.com)'); this.classList.add('border-red-500'); }
-        else { this.setCustomValidity(''); this.classList.remove('border-red-500'); }
-      });
-    });
+  // Render initial state
+  (function renderRegistrationState(){
+    if (!REGISTRATION_OPEN) {
+      // Ubah tombol
+      openBtn.textContent = 'Junior Managers Registration — Closed';
+      openBtn.classList.add('opacity-60','cursor-not-allowed');
+      openBtn.setAttribute('aria-disabled','true');
 
-    // === Google Apps Script endpoint ===
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUs37fZcMzyDLntTmufmt4rrmG2PxMhB82Q2dsgns32hZWrVfeRnozC2mNbII8YESZRw/exec';
-
-    // Submit handler: send to Apps Script (writes to Google Sheet)
-    document.getElementById('jm-form').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Submitting...';
-      submitBtn.disabled = true;
-
-      // Collect form data
-      const formData = new FormData(this);
-      // Add timestamp on client-side too (server will also add)
-      formData.append('timestamp', new Date().toISOString());
-
-      try {
-        // Convert to application/x-www-form-urlencoded for Apps Script
-        const body = new URLSearchParams();
-        for (const [k, v] of formData.entries()) body.append(k, v);
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-          signal: controller.signal,
-          // If your Apps Script is deployed with "Anyone" access, CORS is usually fine.
-        });
-        clearTimeout(timeoutId);
-
-        // Try to parse JSON; fallback to text
-        let payload;
-        const text = await res.text();
-        try { payload = JSON.parse(text); } catch { payload = { ok: res.ok, message: text }; }
-
-        if (!res.ok || payload?.ok === false) {
-          throw new Error(payload?.message || 'Submission failed');
-        }
-
-        alert(payload?.message || 'Registration submitted successfully!');
-        this.reset();
-        document.getElementById('jm-modal').classList.add('hidden');
-      } catch (err) {
-        alert('Gagal submit: ' + (err?.message || err));
-      } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+      // Siapkan modal menjadi pesan "closed"
+      titleEl.textContent = 'Registration Closed';
+      formEl.classList.add('hidden');
+      // Pastikan box closed cuma dipasang sekali
+      if (!document.getElementById('closed-note')) {
+        formEl.parentNode.appendChild(closedBox);
       }
+    } else {
+      // State terbuka (kalau nanti dibuka lagi)
+      openBtn.textContent = 'Junior Managers Registration';
+      openBtn.classList.remove('opacity-60','cursor-not-allowed');
+      openBtn.removeAttribute('aria-disabled');
+
+      titleEl.textContent = 'Junior Managers Registration';
+      formEl.classList.remove('hidden');
+      const exist = document.getElementById('closed-note');
+      if (exist) exist.remove();
+    }
+  })();
+
+  // Open/close modal
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Boleh tetap buka modal agar user lihat pesan closed
+    modal.classList.remove('hidden');
+  });
+  closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+  // ====== SIMPLE VALIDATIONS (tetap, tapi tak dipakai saat closed) ======
+  document.querySelectorAll('input[name="phone"]').forEach(input => {
+    input.addEventListener('input', function() { this.value = this.value.replace(/[^0-9+\-\s]/g, ''); });
+  });
+
+  document.querySelectorAll('input[type="email"]').forEach(input => {
+    input.addEventListener('blur', function() {
+      const email = this.value; const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && !re.test(email)) { this.setCustomValidity('Please enter a valid email (e.g., name@example.com)'); this.classList.add('border-red-500'); }
+      else { this.setCustomValidity(''); this.classList.remove('border-red-500'); }
     });
-  </script>
+  });
 
-<!-- Enhanced navbar toggles (mobile + a11y + esc close) -->
-<script>
-(function(){
-  var body = document.body;
-  var menuBtn = document.getElementById('menu-toggle');
-  var mobileMenu = document.getElementById('mobile-menu');
-  var aboutToggle = document.getElementById('about-toggle');
-  var aboutArrow = document.getElementById('about-arrow');
-  var aboutSubmenu = document.getElementById('about-submenu');
+  // ====== APPS SCRIPT URL (biarkan seperti aslinya) ======
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUs37fZcMzyDLntTmufmt4rrmG2PxMhB82Q2dsgns32hZWrVfeRnozC2mNbII8YESZRw/exec';
 
-  function openMenu(){ if(!mobileMenu) return; mobileMenu.classList.remove('hidden'); body.classList.add('overflow-hidden'); if(menuBtn) menuBtn.setAttribute('aria-expanded','true'); }
-  function closeMenu(){ if(!mobileMenu) return; mobileMenu.classList.add('hidden'); body.classList.remove('overflow-hidden'); if(menuBtn) menuBtn.setAttribute('aria-expanded','false'); if(aboutSubmenu && !aboutSubmenu.classList.contains('hidden')) { aboutSubmenu.classList.add('hidden'); if(aboutArrow) aboutArrow.classList.remove('rotate-180'); } }
+  // ====== SUBMIT HANDLER ======
+  document.getElementById('jm-form').addEventListener('submit', async function(e){
+    // Kalau closed, blokir submission
+    if (!REGISTRATION_OPEN) {
+      e.preventDefault();
+      alert('Registration is closed.');
+      return;
+    }
 
-  if (menuBtn && mobileMenu){
-    menuBtn.setAttribute('aria-controls','mobile-menu');
-    menuBtn.setAttribute('aria-expanded','false');
-    menuBtn.addEventListener('click', function(){
-      var isHidden = mobileMenu.classList.contains('hidden');
-      if (isHidden) openMenu(); else closeMenu();
-    });
+    e.preventDefault();
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
 
-    // close on ESC
-    window.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMenu(); });
-    // close when clicking any link
-    var links = mobileMenu.querySelectorAll('a');
-    for (var i=0;i<links.length;i++){ links[i].addEventListener('click', closeMenu); }
-  }
+    try {
+      const formData = new FormData(this);
+      formData.append('timestamp', new Date().toISOString());
+      const body = new URLSearchParams();
+      for (const [k, v] of formData.entries()) body.append(k, v);
 
-  if (aboutToggle && aboutSubmenu){
-    aboutToggle.setAttribute('aria-expanded','false');
-    aboutToggle.addEventListener('click', function(){
-      var hidden = aboutSubmenu.classList.toggle('hidden');
-      if (aboutArrow){ if (hidden) aboutArrow.classList.remove('rotate-180'); else aboutArrow.classList.add('rotate-180'); }
-      aboutToggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
-    });
-  }
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
 
-  // Highlight current page in desktop nav
-  var path = location.pathname.split('/').pop();
-  var navLinks = document.querySelectorAll('nav a.nav-link');
-  for (var j=0;j<navLinks.length;j++){
-    var href = navLinks[j].getAttribute('href');
-    if (href && href === path) { navLinks[j].classList.add('active'); }
-  }
-})();
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      let payload;
+      const text = await res.text();
+      try { payload = JSON.parse(text); } catch { payload = { ok: res.ok, message: text }; }
+
+      if (!res.ok || payload?.ok === false) {
+        throw new Error(payload?.message || 'Submission failed');
+      }
+
+      alert(payload?.message || 'Registration submitted successfully!');
+      this.reset();
+      document.getElementById('jm-modal').classList.add('hidden');
+    } catch (err) {
+      alert('Gagal submit: ' + (err?.message || err));
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 </script>
+
 
 </body>
 </html>
