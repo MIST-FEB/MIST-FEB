@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST - Weapons' Scream-Worthy Strategy</title>
+
+  <!-- Preload Images -->
+  <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
+  <link rel="preload" as="image" href="img/KaMIST BG.jpg">
+  <link rel="preload" as="image" href="img/weapons.png">
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #5b0a4d;
+      color: white;
+    }
+    .kamist-section {
+      background: url('img/KaMIST BG.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 100px 20px 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .kamist-title {
+      font-size: 56px;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .kamist-image {
+      max-width: 80%;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .article-box {
+      width: 90%;
+      max-width: 1000px;
+      height: 500px;
+      background-color: rgba(0,0,0,0.45);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 20px;
+      overflow: hidden;
+    }
+    .content {
+      max-height: 440px;
+      overflow-y: auto;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+    nav { background: #570133 !important; }
+    .nav-link:hover { color: #fcd770; }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="relative w-full bg-mist-purple z-50">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
+      <img src="assets/Navbar/MISTKuning.png" alt="MIST Logo" class="w-8 h-8">
+      <span class="font-bold">The 22nd MIST</span>
+    </div>
+
+    <ul class="hidden md:flex space-x-6 text-sm font-semibold text-white">
+      <li><a href="index.html" class="nav-link">Profile</a></li>
+      <li><a href="event.html" class="nav-link">Events</a></li>
+      <li><a href="kamist.html" class="nav-link">KaMIST</a></li>
+    </ul>
+
+     <!-- Contact button -->
+      <a href="#contact"
+        class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
+        onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+        onmouseout="this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'"
+        style="box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+        Contact us
+      </a>
+
+    <div class="md:hidden block bg-mist-purple px-4 py-2 rounded-lg">
+      <button id="menu-toggle" class="text-white text-3xl"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<section class="kamist-section">
+  <h1 class="kamist-title">KaMIST</h1>
+
+  <div class="flex flex-col items-center w-full max-w-3xl mx-auto">
+
+    <!-- ✅ Poster Weapons -->
+    <img src="img/weapons.png" alt="Weapons Marketing" class="kamist-image">
+
+    <div class="article-box">
+      <div class="content px-2">
+
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Weapons’ Scream-Worthy Strategy</h2>
+
+        <p class="mb-4">
+          Hello, OptiMIST People! Back at it again with KaMIST — your weekly dose of insights into the latest marketing trends. 
+          This week, we’re diving into the eerie and brilliantly strategic campaign behind Zach Cregger’s newest horror film, <i>Weapons</i>.
+        </p>
+
+        <p class="mb-4">
+          In a market saturated with repetitive horror formulas, <i>Weapons</i> burst into the public eye with a refreshingly mysterious approach. 
+          Unlike typical horror trailers that reveal too much, the marketing team embraced the power of the unknown — creating anticipation, confusion, and massive online speculation.
+        </p>
+
+        <p class="mb-4">
+          The first teaser only offered a few unsettling clips paired with a chilling voice-over, revealing almost nothing about the plot. 
+          And yet, in just 45 seconds, it racked up over <b>2.8 million views</b>.  
+          With so little information given, audiences everywhere rushed to craft theories, clues, and breakdowns.  
+          Communities formed, discussions exploded, and the film gained international buzz before the actual release.
+        </p>
+
+        <p class="mb-4">
+          To elevate the experience, the marketing team blended <b>experiential marketing</b> with narrative storytelling.  
+          In multiple U.S. cities, child actors recreated eerie “Weapons runs,” mimicking scenes from the movie. 
+          Their blank stares and synchronized movements transformed everyday places into unsettling, real-world extensions of the film’s universe.
+        </p>
+
+        <p class="mb-4">
+          Warner Bros. then launched a cryptic website, <b>Maybrookmissing.com</b>, where audiences could dig deeper into clues and interact with the fictional world of the film. 
+          Suddenly, the film wasn’t just a film — it was an experience.
+        </p>
+
+        <p class="mb-4">
+          Alongside this, the team also deployed a powerful <b>buzz marketing</b> tactic: releasing “found footage” clips styled like CCTV surveillance from inside the film’s universe.  
+          The hyper-realistic format blurred the line between fiction and reality, sparking organic conversation and massive virality on social media.
+        </p>
+
+        <p class="mb-4">
+          And the results? Nothing short of scream-worthy.  
+          <i>Weapons</i> garnered millions of trailer views, went viral on TikTok, earned a perfect Rotten Tomatoes score from critics, and generated a staggering <b>$268 million</b> against a $38 million budget.
+        </p>
+
+        <p class="mb-4">
+          A true horror film keeps audiences gripping their seats with fear and curiosity — and the marketing of <i>Weapons</i> perfectly captured that spirit.
+        </p>
+
+        <p class="mb-4">
+          Wanna get more insights into marketing? Tune in every Thursday for more KaMIST!
+        </p>
+
+        <div class="mt-6">
+          <span class="font-semibold block mb-1">You can reach us at</span>
+          <span class="block">LINE: @mistfebui</span>
+          <span class="block">Instagram: @mistfebui</span>
+          <span class="block">Twitter: @mistfebui</span>
+          <span class="block">Facebook: MIST FEB UI</span>
+        </div>
+
+        <div class="mt-4 font-bold text-yellow-300">Stay, #optiMIST</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full">
+  <div class="text-center text-white/60 mt-6 text-xs">
+    &copy; 2025 The 22nd MIST. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
