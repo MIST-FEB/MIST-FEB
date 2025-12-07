@@ -68,18 +68,18 @@
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     }
     .viewport{
-      overflow:auto;          /* scrolling happens here */
+      overflow:auto;
       border-radius:18px;
       outline:1px solid rgba(255,255,255,.12);
     }
     .grid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));  /* 2-up on desktop */
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:24px;
       padding:16px;
     }
 
-    /* ---------- Cards (ALL same size) ---------- */
+    /* ---------- Cards ---------- */
     .card{
       position:relative;border-radius:18px;overflow:hidden;
       background:rgba(255,255,255,.06);
@@ -87,7 +87,7 @@
       box-shadow:0 10px 24px rgba(0,0,0,.30);
       transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
       display:block;text-decoration:none;color:inherit;
-      aspect-ratio:1/1;       /* uniform square tiles */
+      aspect-ratio:1/1;
     }
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.40);filter:brightness(1.04)}
     .card img{width:100%;height:100%;object-fit:cover;display:block}
@@ -110,10 +110,10 @@
     /* ---------- Responsive ---------- */
     @media (max-width:720px){
       .kamist-title{font-size:36px}
-      .grid{grid-template-columns:1fr} /* 1-up on mobile */
+      .grid{grid-template-columns:1fr}
     }
 
-    /* ---------- Navbar carryover styles ---------- */
+    /* ---------- Navbar ---------- */
     .bg-mist-purple{background-color:#570133!important}
     .gradient-bg{background:linear-gradient(90deg,#E664A1 25%,#ED8C7E 35%,#F8AF56 50%,#ED8C7E 72%,#E664A1 90%)!important}
     nav{background:#570133!important}
@@ -245,14 +245,21 @@
       <div class="viewport" id="viewport">
         <div class="grid" id="grid">
           <!-- November -->
-        <a class="card" data-month="november" href="weapons.html">
-          <span class="ribbon">#KaMIST</span>
-          <img src="img/weapons.png" alt="Weapons’ Scream-Worthy Strategy"/>
-          <div class="caption">Weapons’ Scream-Worthy Strategy</div>
-        </a>
+          <a class="card" data-month="november" href="weapons.html">
+            <span class="ribbon">#KaMIST</span>
+            <img src="img/weapons.png" alt="Weapons’ Scream-Worthy Strategy"/>
+            <div class="caption">Weapons’ Scream-Worthy Strategy</div>
+          </a>
+
+          <!-- NEW: From Nest to Noise (November) -->
+          <a class="card" data-month="november" href="nesttonoise.html">
+            <span class="ribbon">#KaMIST</span>
+            <img src="img/nestto.png" alt="From Nest to Noise - Sarang Semut"/>
+            <div class="caption">From Nest to Noise</div>
+          </a>
 
           <!-- October -->
-           <a class="card" data-month="october" href="applebuzz.html">
+          <a class="card" data-month="october" href="applebuzz.html">
             <span class="ribbon">#KaMIST</span>
             <img src="img/applebuz.png" alt="Apple's Buzz Marketing"/>
             <div class="caption">Apple's Buzz Marketing</div>
@@ -337,7 +344,6 @@
             <img src="img/MatchaPartea.png" alt="Matcha Partea"/>
             <div class="caption">Matcha Partea</div>
           </a>
-          <!-- Add more .card with data-month and month/YourFile.html as you publish -->
         </div>
       </div>
     </div>
@@ -357,7 +363,6 @@
         <p>0821-1170-7538 (Dira) | Media Partnership</p>
         <p><a href="mailto:publication@mistfebui.com" class="underline hover:text-yellow-300">publication@mistfebui.com</a></p>
       </div>
-      <!-- Move EVENT section to the right (last column) -->
       <div class="md:col-start-3 md:col-end-4">
         <h3 class="font-bold text-lg mb-2">EVENT</h3>
         <p>0813-2222-9532 (Kiara) | Conference Organizer</p>
@@ -403,8 +408,6 @@
         .filter(el => el.style.display !== 'none');
     }
 
-    // Compute viewport height to show exactly 4 cards before scrolling:
-    // desktop: 2 cols × 2 rows; mobile: 1 col × 4 rows
     function sizeViewport(){
       const viewport = document.getElementById('viewport');
       const grid = document.getElementById('grid');
@@ -417,12 +420,11 @@
 
       const isMobile = window.matchMedia('(max-width: 720px)').matches;
       const cols = isMobile ? 1 : 2;
-      const rowsTarget = isMobile ? 4 : 2; // total tiles visible = cols * rowsTarget (4)
+      const rowsTarget = isMobile ? 4 : 2;
 
       const visible = getVisibleCards();
       if (visible.length === 0) { viewport.style.height = '240px'; return; }
 
-      // sample a regular tile height
       let regH = visible[0].getBoundingClientRect().height || 240;
 
       const rowsAvailable = Math.ceil(visible.length / cols);
@@ -432,7 +434,6 @@
       viewport.style.height = Math.ceil(visibleHeight) + 'px';
     }
 
-    // Filter logic (month buttons)
     function applyFilter(month) {
       const buttons = Array.from(document.querySelectorAll('.filter-btn'));
       buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === month || (month === 'all' && b.dataset.filter === 'all')));
@@ -446,14 +447,12 @@
       sizeViewport();
     }
 
-    // Events
     document.getElementById('filterBar').addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
       if (!btn) return;
       applyFilter(btn.dataset.filter || 'all');
     });
 
-    // Init + reflow after images load
     function init() {
       sizeViewport();
       const imgs = document.querySelectorAll('#grid img');
