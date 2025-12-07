@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST - The Ladder Effect</title>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
+  <link rel="preload" as="image" href="img/KaMIST BG.jpg">
+  <link rel="preload" as="image" href="img/ladder.png">
+
+  <!-- Tailwind & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #5b0a4d;
+      color: white;
+    }
+    .kamist-section {
+      background: url('img/KaMIST BG.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .kamist-title {
+      font-size: 56px;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .kamist-subtitle {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .kamist-image {
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .article-box {
+      width: 90%;
+      max-width: 1000px;
+      height: 500px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 25px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .content {
+      max-height: 440px;
+      overflow-y: auto;
+      line-height: 1.7;
+      font-size: 1rem;
+      padding-right: 8px;
+    }
+
+    /* navbar styles (same as your KaMIST pages) */
+    .bg-mist-purple { background-color: #570133 !important; }
+    .gradient-bg {
+      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
+    }
+    nav { background: #570133 !important; }
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link:hover { color: #fcd770; }
+    .nav-link:after {
+      content:'';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%);
+      transition: width .3s;
+    }
+    .nav-link:hover:after { width: 100%; }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR START ===== -->
+<nav class="relative w-full bg-mist-purple z-50">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+    
+    <!-- Logo -->
+    <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
+      <img src="assets/Navbar/MISTKuning.png" class="w-8 h-8" />
+      <span class="font-bold text-white">The 22nd MIST</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 font-semibold text-white text-sm">
+      <li><a href="index.html" class="nav-link">Profile</a></li>
+      <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+      <li><a href="event.html" class="nav-link">Events</a></li>
+      <li><a href="kamist.html" class="nav-link">KaMIST</a></li>
+    </ul>
+
+    <!-- Contact -->
+    <a href="#contact"
+      class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg font-semibold text-white">
+      Contact us
+    </a>
+
+    <!-- Mobile -->
+    <div class="md:hidden block">
+      <button id="menu-toggle" class="text-white text-3xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 text-white font-semibold text-sm">
+    <a href="index.html" class="block nav-link">Profile</a>
+    <a href="aboutus.html" class="block nav-link">About Us</a>
+    <a href="event.html" class="block nav-link">Events</a>
+    <a href="kamist.html" class="block nav-link">KaMIST</a>
+  </div>
+</nav>
+<!-- ===== NAVBAR END ===== -->
+
+<!-- ===== MAIN CONTENT ===== -->
+<section class="kamist-section">
+
+  <h1 class="kamist-title">KaMIST</h1>
+  <p class="kamist-subtitle">The Ladder Effect</p>
+
+  <img src="img/ladder.png" class="kamist-image" alt="The Ladder Effect">
+
+  <div class="article-box">
+    <div class="content">
+
+      <h2 class="text-2xl font-bold mb-2">The Ladder Effect</h2>
+      <p class="font-semibold mb-4">Hello, OptiMIST People!</p>
+
+      <p class="mb-4">
+        Back at it again with KaMIST! Your weekly dose of insights into the latest marketing trends. 
+        This week, we’re diving into <strong>Max Klymenko’s Career Ladder Series!</strong>
+      </p>
+
+      <p class="mb-4">
+        If you’ve ever scrolled through TikTok or Reels, I’m sure you’ve come across Max Klymenko’s 
+        career ladder series and wondered why it’s so addictive. The concept? Guests climb a literal ladder 
+        and answer only “yes” or “no,” while Max tries to guess their job before the two-minute timer runs out. 
+        Simple rules, huge engagement.
+      </p>
+
+      <p class="mb-4">
+        At first glance, it looks like simple entertainment. But beneath the humor and chaos, 
+        the Career Ladder is actually a <strong>masterclass in modern content strategy</strong>.
+      </p>
+
+      <p class="mb-4">
+        Its strength lies in <strong>instant clarity</strong>. Viewers understand the premise in two seconds—essential in 
+        an era where attention spans are shorter than waiting for an elevator. Max uses a format that explains itself 
+        instantly: a ladder, a countdown, and a chaotic guessing game.
+      </p>
+
+      <p class="mb-4">
+        The ticking timer adds urgency, creating natural retention. Even if you join halfway, 
+        you stay for the reveal. This is called <strong>content retention</strong>, one of the strongest factors behind viral content.
+      </p>
+
+      <p class="mb-4">
+        Another reason the series works is it makes viewers feel like participants. As Max asks questions, 
+        viewers at home start guessing too. Turning passive viewers into active ones instantly boosts comments, 
+        shares, and even rewatches.
+      </p>
+
+      <p class="mb-4">
+        Even though the format never changes, each episode feels fresh because the guests change. 
+        This creates <strong>endless scalability</strong>. Max doesn’t need new ideas each time—the series itself is the idea. 
+        Familiarity builds anticipation.
+      </p>
+
+      <p class="mb-4">
+        And of course, the clever visual pun. Max turns the metaphor “career ladder” into an actual ladder. 
+        This makes the content <strong>visually memorable</strong> and instantly recognizable.
+      </p>
+
+      <p class="mb-4">
+        Brands can learn from this: create content that hooks viewers instantly, uses simple rules, 
+        builds tension, and invites participation. Consistency, clarity, and relatability are the foundations 
+        of strong digital storytelling.
+      </p>
+
+      <p class="mb-4">
+        Wanna get more insights into marketing? Tune in every Thursday for more KaMIST!
+      </p>
+
+      <div class="mt-6">
+        <p class="font-semibold mb-1">You can reach us at:</p>
+        <p>LINE: @mistfebui</p>
+        <p>Instagram: @mistfebui</p>
+        <p>Twitter: @mistfebui</p>
+        <p>Facebook: MIST FEB UI</p>
+      </div>
+
+      <p class="mt-4 font-bold text-yellow-300">Stay, #optiMIST</p>
+    </div>
+  </div>
+
+</section>
+<!-- ===== MAIN END ===== -->
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="font-bold text-lg mb-2">PARTNERSHIP</h3>
+      <p>0818-236-900 (Michelle)</p>
+      <p><a href="mailto:partnership@mist-febui.com" class="underline">partnership@mist-febui.com</a></p>
+    </div>
+    <div>
+      <h3 class="font-bold text-lg mb-2">PUBLICATION</h3>
+      <p>0821-1170-7538 (Dira)</p>
+      <p><a href="mailto:publication@mistfebui.com" class="underline">publication@mistfebui.com</a></p>
+    </div>
+    <div>
+      <h3 class="font-bold text-lg mb-2">EVENT</h3>
+      <p>0813-2222-9532 (Kiara)</p>
+      <p><a href="mailto:event@mist-febui.com" class="underline">event@mist-febui.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () =>
+    document.getElementById('mobile-menu').classList.toggle('hidden')
+  );
+</script>
+
+</body>
+</html>
