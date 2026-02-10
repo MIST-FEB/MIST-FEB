@@ -310,35 +310,46 @@
     .group:hover .group-hover\:visible { visibility: visible; }
 
     /* single sponsor box */
-    .sponsor-single-wrap{
-      display:flex;
-      justify-content:center;
-      margin: 0 0 90px; /* spacing before footer */
-      padding: 0 16px;
-    }
+/* single sponsor box - BIGGER */
+.sponsor-single-wrap{
+  display:flex;
+  justify-content:center;
+  margin: 0 0 110px;
+  padding: 0 24px;
+}
 
-    .sponsor-single-box{
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(6px);
-      border-radius: 20px;
-      padding: 18px 28px;
-      border: 2px solid rgba(255,199,57,0.9);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-      max-width: 900px;
-      width: fit-content;
-    }
+.sponsor-single-box{
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  border-radius: 26px;
+  padding: 28px 40px;
+  border: 2px solid rgba(255,199,57,0.95);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.40);
 
-    .sponsor-single-img{
-      height: 96px;
-      width: auto;
-      object-fit: contain;
-      display:block;
-    }
+  /* ini kunci biar box lebar */
+  width: min(1100px, 92vw);
+}
 
-    @media (max-width: 768px){
-      .sponsor-single-img{ height: 56px; }
-      .sponsor-single-box{ padding: 14px 18px; width: 100%; }
-    }
+.sponsor-single-img{
+  width: 100%;
+  max-width: 980px;   /* gedein gambar */
+  height: auto;
+  object-fit: contain;
+  display:block;
+  margin: 0 auto;
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .sponsor-single-box{
+    padding: 18px 18px;
+    width: 94vw;
+    border-radius: 20px;
+  }
+  .sponsor-single-img{
+    max-width: 100%;
+  }
+}
   </style>
 </head>
 
