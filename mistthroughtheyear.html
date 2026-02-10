@@ -8,6 +8,7 @@
   <!-- Preload all images used on this page -->
   <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
   <link rel="preload" as="image" href="img/mtty.png">
+
   <!-- Documentation images -->
   <link rel="preload" as="image" href="img/Website Photos/Copy of DSC04275.JPG">
   <link rel="preload" as="image" href="img/Website Photos/Copy of DSC04642.jpg">
@@ -21,6 +22,7 @@
   <link rel="preload" as="image" href="img/Website Photos/Copy of DSC07058.JPG">
   <link rel="preload" as="image" href="img/Website Photos/Copy of DSC07060.JPG">
   <link rel="preload" as="image" href="img/Website Photos/Copy of DSC07073.JPG">
+
   <!-- Company Partner Logos -->
   <link rel="preload" as="image" href="img/ComPar/Untitled design-15 1.png">
   <link rel="preload" as="image" href="img/ComPar/Group 3449.png">
@@ -39,6 +41,7 @@
   <link rel="preload" as="image" href="img/ComPar/Untitled design (1).png">
   <link rel="preload" as="image" href="img/ComPar/5 785.png">
   <link rel="preload" as="image" href="img/ComPar/Untitled design (5) 1.png">
+
   <!-- Media Partner Logos -->
   <link rel="preload" as="image" href="img/MedPar/(L) Metro TV logo 2 1.png">
   <link rel="preload" as="image" href="img/MedPar/Tempo 2 1.png">
@@ -56,21 +59,30 @@
   <link rel="preload" as="image" href="img/MedPar/(M) Mustang 88 FM.png">
   <link rel="preload" as="image" href="img/MedPar/(M) PRFM.png">
   <link rel="preload" as="image" href="img/MedPar/(M) Radio SmartFM.png">
+
   <!-- Tailwind CSS & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet" />
 
   <style>
-    body {
+    /* FIX WHITE BACKGROUND: make sure even after the image ends, page stays mist-purple */
+    html, body {
       margin: 0;
-      height: 100%;
+      padding: 0;
+      min-height: 100%;
+      background-color: #570133; /* <- IMPORTANT: prevents white area */
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
-      font-weight: 500; 
-      background: url('img/mtty.png') center top no-repeat;
-      background-size: 110% auto; /* Perkecil background */
+      font-weight: 500;
+      background-image: url('img/mtty.png');
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 110% auto;
       color: #fff;
       text-align: center;
       overflow-x: hidden;
@@ -78,7 +90,7 @@
 
     @media (max-width: 768px) {
       body {
-        background: url('img/mtty.png') center center no-repeat;
+        background-position: center center;
         background-size: cover;
         background-attachment: fixed;
       }
@@ -98,10 +110,10 @@
     }
 
     .section-title {
-    font-size: 64px;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin: 100px 0 100px; /* angka terakhir = jarak bawah */
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 100px 0 100px;
     }
 
     .carousel-wrapper {
@@ -145,7 +157,6 @@
       border: 4px solid #FFC739;
     }
 
-    /* --- ADD/EDIT BELOW FOR MOBILE FRIENDLY --- */
     @media (max-width: 768px) {
       .carousel-wrapper,
       .carousel-slide {
@@ -175,7 +186,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 90px; /* Tambahan jarak antar section */
+      margin-bottom: 90px;
     }
 
     .partner-section .rolling-container,
@@ -208,21 +219,20 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* --- MOBILE FRIENDLY FOR PARTNER & MEDIA SECTION --- */
     @media (max-width: 768px) {
       .partner-section, .media-section {
         margin-left: auto;
         margin-right: auto;
-        padding-left: 0; /* reset kiri */
-        padding-right: 0; /* reset kanan */
-        width: 100%; /* bukan 100vw */
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
         max-width: 100%;
         box-sizing: border-box;
       }
 
-      .partner-section .inner-container, 
+      .partner-section .inner-container,
       .media-section .inner-container {
-        padding-left: 16px;  /* kasih jarak kiri kanan yang sama */
+        padding-left: 16px;
         padding-right: 16px;
       }
       .rolling-container {
@@ -241,27 +251,16 @@
       }
     }
 
-    .bg-mist-purple {
-      background-color: #570133 !important;
-    }
+    .bg-mist-purple { background-color: #570133 !important; }
 
     .gradient-bg {
       background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
     }
 
-    nav {
-      background: #570133 !important;
-    }
+    nav { background: #570133 !important; }
 
-    .nav-link {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-link:hover {
-      color: #fcd770;
-    }
-
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link:hover { color: #fcd770; }
     .nav-link:after {
       content: '';
       position: absolute;
@@ -272,20 +271,10 @@
       background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%);
       transition: width 0.3s;
     }
+    .nav-link:hover:after { width: 100%; }
+    .nav-link.active { color: #fcd770; }
+    .nav-link.active::after { width: 100%; }
 
-    .nav-link:hover:after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      color: #fcd770;
-    }
-
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    /* Ensure the dropdown appears above all */
     .dropdown-menu {
       background-color: #570133 !important;
       border: 2px solid #FFC739 !important;
@@ -297,12 +286,10 @@
       padding: 0.75rem 1.25rem;
       transition: all 0.3s ease-in-out;
     }
-    
     .dropdown-link:hover {
       background-color: #FFC739;
       color: #570133;
     }
-
     .dropdown-link::after {
       content: '';
       position: absolute;
@@ -315,40 +302,59 @@
       transform-origin: left;
       transition: transform 0.3s ease-in-out;
     }
+    .dropdown-link:hover::after { transform: scaleX(1); }
 
-    .dropdown-link:hover::after {
-      transform: scaleX(1);
+    ul li a:hover { text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); }
+
+    .group:hover .group-hover\:opacity-100 { opacity: 1; }
+    .group:hover .group-hover\:visible { visibility: visible; }
+
+    /* single sponsor box */
+    .sponsor-single-wrap{
+      display:flex;
+      justify-content:center;
+      margin: 0 0 90px; /* spacing before footer */
+      padding: 0 16px;
     }
 
-    ul li a:hover {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    .sponsor-single-box{
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 18px 28px;
+      border: 2px solid rgba(255,199,57,0.9);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      max-width: 900px;
+      width: fit-content;
     }
 
-    .group:hover .group-hover\:opacity-100 {
-      opacity: 1;
-    }
-    .group:hover .group-hover\:visible {
-      visibility: visible;
+    .sponsor-single-img{
+      height: 96px;
+      width: auto;
+      object-fit: contain;
+      display:block;
     }
 
+    @media (max-width: 768px){
+      .sponsor-single-img{ height: 56px; }
+      .sponsor-single-box{ padding: 14px 18px; width: 100%; }
+    }
   </style>
 </head>
+
 <body>
 
-<!-- ====== NAVBAR START ====== -->
-<!-- Navbar -->
+  <!-- ====== NAVBAR START ====== -->
   <nav class="relative w-full bg-mist-purple z-50">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-      <!-- Logo -->
       <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
         <img src="assets/Navbar/MISTKuning.png" alt="MIST Logo" class="w-8 h-8 object-contain" />
         <span class="text-white font-bold">The 22nd MIST</span>
       </div>
 
-      <!-- Desktop Menu -->
       <ul class="hidden md:flex space-x-6 text-sm font-semibold text-white -ml-4">
         <li><a href="index.html" class="nav-link">Profile</a></li>
-        <!-- DESKTOP NAVBAR -->
+
         <li class="relative group">
           <a href="aboutus.html" class="flex items-center nav-link gap-1 cursor-pointer font-semibold text-white">
             About Us
@@ -356,7 +362,7 @@
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </a>
-          <!-- Dropdown Desktop -->
+
           <ul class="dropdown-menu absolute top-full left-0 mt-2 w-56 text-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-in-out z-50 font-semibold border border-[#FFC739] bg-[#570133] bg-opacity-100">
             <li><a href="aboutus.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133] rounded-t-xl">About Us</a></li>
             <li><a href="grandtheme.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133]">Grand Theme</a></li>
@@ -364,20 +370,19 @@
             <li><a href="mistthroughtheyear.html" class="dropdown-link hover:bg-[#FFC739] hover:text-[#570133] rounded-b-xl">MIST THROUGH THE YEAR</a></li>
           </ul>
         </li>
+
         <li><a href="event.html" class="nav-link" id="nav-profile">Events</a></li>
         <li><a href="kamist.html" class="nav-link">KaMIST</a></li>
       </ul>
 
-      <!-- Contact button -->
-      <a href="#contact" 
-        class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
-        onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
-        onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
-        style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+      <a href="#contact"
+         class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
+         onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+         onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
+         style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
         Contact us
       </a>
 
-      <!-- Hamburger button -->
       <div class="md:hidden block z-50 bg-mist-purple px-4 py-2 rounded-lg">
         <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
           <i class="fas fa-bars"></i>
@@ -385,11 +390,9 @@
       </div>
     </div>
 
-    <!-- Mobile menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex-col space-y-3 text-white font-semibold text-sm">
       <a href="index.html" class="block nav-link">Profile</a>
 
-      <!-- Dropdown for About Us -->
       <div>
         <button id="about-toggle" class="w-full text-left nav-link flex justify-between items-center">
           <span class="font-light">About Us</span>
@@ -408,163 +411,165 @@
 
       <a href="event.html" class="block nav-link">Events</a>
       <a href="kamist.html" class="block nav-link">KaMIST</a>
-      <a href="#contact" 
-        class="block w-max mx-auto px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
-        onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
-        onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
-        style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+
+      <a href="#contact"
+         class="block w-max mx-auto px-4 py-2 rounded-full gradient-bg text-white font-semibold transition duration-300 ease-in-out"
+         onmouseover="this.style.boxShadow='0 0 20px #ED8C7E'"
+         onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'"
+         style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
         Contact us
       </a>
     </div>
   </nav>
-
   <!-- ====== NAVBAR END ====== -->
 
   <!-- ====== MAIN CONTENT ====== -->
   <section class="about-section">
-  <h1 class="section-title">PAST DOCUMENTATIONS</h1>
-  <div class="carousel-wrapper">
-    <div class="carousel-slide">
-      <div class="slide-grid">
-        <img src="img/Website Photos/Copy of DSC04275.JPG" alt="Doc 1" />
-        <img src="img/Website Photos/Copy of DSC04642.jpg" alt="Doc 2" />
-        <img src="img/Website Photos/Copy of DSC04667.jpg" alt="Doc 3" />
-        <img src="img/Website Photos/Copy of DSC04705.JPG" alt="Doc 4" />
-        <img src="img/Website Photos/Copy of DSC04727.jpg" alt="Doc 5" />
-        <img src="img/Website Photos/Copy of DSC04780.jpg" alt="Doc 6" />
-      </div>
-    </div>
-    <div class="carousel-slide">
-      <div class="slide-grid">
-        <img src="img/Website Photos/Copy of DSC06229.JPG" alt="Doc 7" />
-        <img src="img/Website Photos/Copy of DSC06685.JPG" alt="Doc 8" />
-        <img src="img/Website Photos/Copy of DSC07055.JPG" alt="Doc 9" />
-        <img src="img/Website Photos/Copy of DSC07058.JPG" alt="Doc 10" />
-        <img src="img/Website Photos/Copy of DSC07060.JPG" alt="Doc 11" />
-        <img src="img/Website Photos/Copy of DSC07073.JPG" alt="Doc 12" />
-      </div>
-    </div>
-  </div>
+    <h1 class="section-title">PAST DOCUMENTATIONS</h1>
 
-  <!-- pre event sponsors -->
-  <h2 class="section-title">PRE EVENT SPONSORS</h2>
-  <div class="partner-section">
-    <div class="rolling-container">
-      <div class="rolling-track">
-        <!-- Repeat all logos twice for seamless scroll -->
-        <img src="img/presp/SATURDAYS LOGO_Horizontal White (1).PNG" alt="Saturdays" />
-        <img src="img/presp/Logo Kahf Putih.PNG" alt="Kahf" />
-        <img src="img/presp/Logo Tavi Biru.PNG" alt="Tavi" />
-        <img src="img/presp/Logo Kate Spade Hitam.PNG" alt="Kate Spade" />
-        <img src="img/presp/LOGO KA nonTagline.PNG" alt="Kapal Api" />
-        <img src="img/presp/Logo HiLo (Nutrifood).JPEG" alt="HiLo" />
-        <img src="img/presp/Logo Herba Madu Enak Coklat.PNG" alt="Madu Enak" />
-        <img src="img/presp/Logo Antam Logam Mulia.JPEG" alt="Antam Logam Mulia" />
-        <img src="img/presp/Logo - Kenangan Sparks - Dark.PNG" alt="Kenangan Sparks" />
-        <img src="img/presp/Main Logo_ITOEN-05.PNG" alt="Itoen" />
-        <!-- Repeat again for seamless loop -->
-        <img src="img/presp/SATURDAYS LOGO_Horizontal White (1).PNG" alt="Saturdays" />
-        <img src="img/presp/Logo Kahf Putih.PNG" alt="Kahf" />
-        <img src="img/presp/Logo Tavi Biru.PNG" alt="Tavi" />
-        <img src="img/presp/Logo Kate Spade Hitam.PNG" alt="Kate Spade" />
-        <img src="img/presp/LOGO KA nonTagline.PNG" alt="Kapal Api" />
-        <img src="img/presp/Logo HiLo (Nutrifood).JPEG" alt="HiLo" />
-        <img src="img/presp/Logo Herba Madu Enak Coklat.PNG" alt="Madu Enak" />
-        <img src="img/presp/Logo Antam Logam Mulia.JPEG" alt="Antam Logam Mulia" />
-        <img src="img/presp/Logo - Kenangan Sparks - Dark.PNG" alt="Kenangan Sparks" />
-        <img src="img/presp/Main Logo_ITOEN-05.PNG" alt="Itoen" />
+    <div class="carousel-wrapper">
+      <div class="carousel-slide">
+        <div class="slide-grid">
+          <img src="img/Website Photos/Copy of DSC04275.JPG" alt="Doc 1" />
+          <img src="img/Website Photos/Copy of DSC04642.jpg" alt="Doc 2" />
+          <img src="img/Website Photos/Copy of DSC04667.jpg" alt="Doc 3" />
+          <img src="img/Website Photos/Copy of DSC04705.JPG" alt="Doc 4" />
+          <img src="img/Website Photos/Copy of DSC04727.jpg" alt="Doc 5" />
+          <img src="img/Website Photos/Copy of DSC04780.jpg" alt="Doc 6" />
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="slide-grid">
+          <img src="img/Website Photos/Copy of DSC06229.JPG" alt="Doc 7" />
+          <img src="img/Website Photos/Copy of DSC06685.JPG" alt="Doc 8" />
+          <img src="img/Website Photos/Copy of DSC07055.JPG" alt="Doc 9" />
+          <img src="img/Website Photos/Copy of DSC07058.JPG" alt="Doc 10" />
+          <img src="img/Website Photos/Copy of DSC07060.JPG" alt="Doc 11" />
+          <img src="img/Website Photos/Copy of DSC07073.JPG" alt="Doc 12" />
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- COMPANY PARTNERS -->
-  <h2 class="section-title">COMPANY PARTNERS</h2>
-  <div class="partner-section">
-    <div class="rolling-container">
-      <div class="rolling-track">
-        <!-- Repeat all logos twice for seamless scroll -->
-        <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
-        <img src="img/ComPar/Group 3449.png" alt="Prudential" />
-        <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
-        <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
-        <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
-        <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
-        <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
-        <img src="img/ComPar/image 6860.png" alt="BlueBird" />
-        <img src="img/ComPar/logo paragon.png" alt="Paragon" />
-        <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
-        <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
-        <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
-        <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
-        <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
-        <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
-        <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
-        <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
-        <!-- Repeat again for seamless loop -->
-        <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
-        <img src="img/ComPar/Group 3449.png" alt="Prudential" />
-        <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
-        <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
-        <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
-        <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
-        <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
-        <img src="img/ComPar/image 6860.png" alt="BlueBird" />
-        <img src="img/ComPar/logo paragon.png" alt="Paragon" />
-        <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
-        <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
-        <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
-        <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
-        <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
-        <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
-        <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
-        <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
+    <h2 class="section-title">PRE EVENT SPONSORS</h2>
+    <div class="partner-section">
+      <div class="rolling-container">
+        <div class="rolling-track">
+          <img src="img/presp/SATURDAYS LOGO_Horizontal White (1).PNG" alt="Saturdays" />
+          <img src="img/presp/Logo Kahf Putih.PNG" alt="Kahf" />
+          <img src="img/presp/Logo Tavi Biru.PNG" alt="Tavi" />
+          <img src="img/presp/Logo Kate Spade Hitam.PNG" alt="Kate Spade" />
+          <img src="img/presp/LOGO KA nonTagline.PNG" alt="Kapal Api" />
+          <img src="img/presp/Logo HiLo (Nutrifood).JPEG" alt="HiLo" />
+          <img src="img/presp/Logo Herba Madu Enak Coklat.PNG" alt="Madu Enak" />
+          <img src="img/presp/Logo Antam Logam Mulia.JPEG" alt="Antam Logam Mulia" />
+          <img src="img/presp/Logo - Kenangan Sparks - Dark.PNG" alt="Kenangan Sparks" />
+          <img src="img/presp/Main Logo_ITOEN-05.PNG" alt="Itoen" />
+
+          <img src="img/presp/SATURDAYS LOGO_Horizontal White (1).PNG" alt="Saturdays" />
+          <img src="img/presp/Logo Kahf Putih.PNG" alt="Kahf" />
+          <img src="img/presp/Logo Tavi Biru.PNG" alt="Tavi" />
+          <img src="img/presp/Logo Kate Spade Hitam.PNG" alt="Kate Spade" />
+          <img src="img/presp/LOGO KA nonTagline.PNG" alt="Kapal Api" />
+          <img src="img/presp/Logo HiLo (Nutrifood).JPEG" alt="HiLo" />
+          <img src="img/presp/Logo Herba Madu Enak Coklat.PNG" alt="Madu Enak" />
+          <img src="img/presp/Logo Antam Logam Mulia.JPEG" alt="Antam Logam Mulia" />
+          <img src="img/presp/Logo - Kenangan Sparks - Dark.PNG" alt="Kenangan Sparks" />
+          <img src="img/presp/Main Logo_ITOEN-05.PNG" alt="Itoen" />
+        </div>
       </div>
     </div>
-  </div>
 
+    <h2 class="section-title">COMPANY PARTNERS</h2>
+    <div class="partner-section">
+      <div class="rolling-container">
+        <div class="rolling-track">
+          <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
+          <img src="img/ComPar/Group 3449.png" alt="Prudential" />
+          <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
+          <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
+          <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
+          <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
+          <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
+          <img src="img/ComPar/image 6860.png" alt="BlueBird" />
+          <img src="img/ComPar/logo paragon.png" alt="Paragon" />
+          <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
+          <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
+          <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
+          <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
+          <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
+          <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
+          <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
+          <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
 
-  <!-- MEDIA PARTNERS -->
-  <h2 class="section-title">MEDIA PARTNERS</h2>
-  <div class="media-section">
-    <div class="rolling-container">
-      <div class="rolling-track">
-        <!-- Media partner logos, repeated twice -->
-        <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
-        <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
-        <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
-        <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
-        <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
-        <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
-        <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
-        <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
-        <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
-        <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
-        <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
-        <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
-        <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
-        <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
-        <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
-        <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
-        <!-- Repeat for seamless scroll -->
-        <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
-        <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
-        <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
-        <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
-        <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
-        <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
-        <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
-        <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
-        <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
-        <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
-        <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
-        <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
-        <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
-        <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
-        <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
-        <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
+          <img src="img/ComPar/Untitled design-15 1.png" alt="Kate Spade" />
+          <img src="img/ComPar/Group 3449.png" alt="Prudential" />
+          <img src="img/ComPar/IMG_1864 2.png" alt="BRI" />
+          <img src="img/ComPar/Cakap-Logo-2021---Color.png" alt="Cakap" />
+          <img src="img/ComPar/Coca-Cola-logo 1.png" alt="Coca Cola" />
+          <img src="img/ComPar/Dewha_Logo White 2.png" alt="Dewha" />
+          <img src="img/ComPar/GC White terbaru BG Hitam 2.png" alt="GC" />
+          <img src="img/ComPar/image 6860.png" alt="BlueBird" />
+          <img src="img/ComPar/logo paragon.png" alt="Paragon" />
+          <img src="img/ComPar/Logo-Bank-Negara-Indonesia-BNI.png" alt="BNI" />
+          <img src="img/ComPar/Logo_Pertamina_Gas_Negara.svg 1.png" alt="Pertamina" />
+          <img src="img/ComPar/LOREAL_INDONESIA1.png" alt="Loreal" />
+          <img src="img/ComPar/OCBC-Bank-Logo 2.png" alt="OCBC" />
+          <img src="img/ComPar/PricewaterhouseCoopers_Logo.png" alt="PWC" />
+          <img src="img/ComPar/Untitled design (1).png" alt="Deloitte" />
+          <img src="img/ComPar/5 785.png" alt="Glad2Glow" />
+          <img src="img/ComPar/Untitled design (5) 1.png" alt="Indomie" />
+        </div>
       </div>
     </div>
-  </div>
+
+    <h2 class="section-title">MEDIA PARTNERS</h2>
+    <div class="media-section">
+      <div class="rolling-container">
+        <div class="rolling-track">
+          <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
+          <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
+          <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
+          <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
+          <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
+          <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
+          <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
+          <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
+          <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
+          <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
+          <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
+          <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
+          <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
+          <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
+          <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
+          <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
+
+          <img src="img/MedPar/(L) Metro TV logo 2 1.png" alt="Metro TV" />
+          <img src="img/MedPar/Tempo 2 1.png" alt="Tempo" />
+          <img src="img/MedPar/(L) Liputan6 - Secondary Logo 2.png" alt="Liputan 6" />
+          <img src="img/MedPar/(L) Katadata 1.png" alt="Katadata" />
+          <img src="img/MedPar/(L) Kompasiana 1.png" alt="Kompasiana" />
+          <img src="img/MedPar/(L) Lampung Post 1.png" alt="Lampung Post" />
+          <img src="img/MedPar/(L) Marketeers Black 1.png" alt="Marketeers" />
+          <img src="img/MedPar/(L) Medcom 2.png" alt="Medcom" />
+          <img src="img/MedPar/(L) Media Indonesia putih 1.png" alt="Media Indonesia" />
+          <img src="img/MedPar/(L) OPPAL 1.png" alt="Oppal" />
+          <img src="img/MedPar/(L) PRAMBORS NASIONAL - WHITE 1.png" alt="Prambors" />
+          <img src="img/MedPar/(M) MMTC TV.png" alt="MMTC" />
+          <img src="img/MedPar/(M) Motion Radio.png" alt="Motion" />
+          <img src="img/MedPar/(M) Mustang 88 FM.png" alt="Mustang" />
+          <img src="img/MedPar/(M) PRFM.png" alt="PRFM" />
+          <img src="img/MedPar/(M) Radio SmartFM.png" alt="SmartFM" />
+        </div>
+      </div>
+    </div>
+
+    <!-- SINGLE SPONSOR BOX (1 foto) -->
+    <div class="sponsor-single-wrap">
+      <div class="sponsor-single-box">
+        <img src="img/promotor.png" alt="Sponsor" class="sponsor-single-img" />
+      </div>
+    </div>
   </section>
 
   <!-- ====== FOOTER START ====== -->
@@ -609,7 +614,6 @@
   </footer>
   <!-- ====== FOOTER END ====== -->
 
-  <!-- ====== SCRIPTS ====== -->
   <script>
     document.getElementById('menu-toggle').addEventListener('click', function () {
       const menu = document.getElementById('mobile-menu');
