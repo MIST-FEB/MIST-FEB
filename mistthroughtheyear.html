@@ -319,16 +319,15 @@
 }
 
 .sponsor-single-box{
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(8px);
+  background: transparent;   /* ini yg bikin kotak pink hilang */
+  backdrop-filter: none;     /* hilangin blur */
   border-radius: 26px;
-  padding: 28px 40px;
+  padding: 18px 24px;
   border: 2px solid rgba(255,199,57,0.95);
   box-shadow: 0 16px 40px rgba(0,0,0,0.40);
-
-  /* ini kunci biar box lebar */
   width: min(1100px, 92vw);
 }
+
 
 .sponsor-single-img{
   width: 100%;
@@ -576,6 +575,7 @@
     </div>
 
     <!-- SINGLE SPONSOR BOX (1 foto) -->
+     <h2 class="section-title">THE 22ND MIST SPONSORS & MEDIA PARTNERS</h2>
     <div class="sponsor-single-wrap">
       <div class="sponsor-single-box">
         <img src="img/promotor.png" alt="Sponsor" class="sponsor-single-img" />
