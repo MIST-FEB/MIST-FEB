@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaMIST - Lunch Break, But Make It Jogja</title>
+
+  <link rel="preload" as="image" href="assets/Navbar/MISTKuning.png">
+  <link rel="preload" as="image" href="img/KaMIST BG.jpg">
+  <link rel="preload" as="image" href="img/jogja.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #5b0a4d;
+      color: white;
+    }
+
+    .kamist-section {
+      background: url('img/KaMIST BG.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .kamist-title {
+      font-size: 56px;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffe59f, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .kamist-subtitle {
+      font-size: 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      font-weight: 500;
+      opacity: .95;
+    }
+
+    .kamist-image {
+      width: min(820px, 92vw);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      height: auto;
+      margin-bottom: 28px;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .article-box {
+      width: min(1000px, 92vw);
+      background-color: rgba(0, 0, 0, 0.40);
+      border-radius: 25px;
+      padding: 26px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.28);
+    }
+
+    .content {
+      max-height: 520px;
+      overflow-y: auto;
+      line-height: 1.75;
+      font-size: 1rem;
+      padding-right: 8px;
+    }
+
+    .content::-webkit-scrollbar { width: 8px; }
+    .content::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.18);
+      border-radius: 999px;
+    }
+
+    .bg-mist-purple { background-color: #570133 !important; }
+    .gradient-bg {
+      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%) !important;
+    }
+    nav { background: #570133 !important; }
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link:hover { color: #fcd770; }
+    .nav-link:after {
+      content:'';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(90deg, #E664A1 25%, #ED8C7E 35%, #F8AF56 50%, #ED8C7E 72%, #E664A1 90%);
+      transition: width .3s;
+    }
+    .nav-link:hover:after { width: 100%; }
+
+    @media (max-width: 640px){
+      .kamist-title{ font-size: 44px; }
+      .article-box{ padding: 20px; }
+      .content{ max-height: 560px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="relative w-full bg-mist-purple z-50">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2 px-4 py-2 rounded-full gradient-bg">
+      <img src="assets/Navbar/MISTKuning.png" class="w-8 h-8" />
+      <span class="font-bold text-white">The 22nd MIST</span>
+    </div>
+
+    <ul class="hidden md:flex space-x-6 font-semibold text-white text-sm">
+      <li><a href="index.html" class="nav-link">Profile</a></li>
+      <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+      <li><a href="event.html" class="nav-link">Events</a></li>
+      <li><a href="kamist.html" class="nav-link">KaMIST</a></li>
+    </ul>
+
+    <a href="#contact" class="hidden md:inline-block px-4 py-2 rounded-full gradient-bg font-semibold text-white">
+      Contact us
+    </a>
+
+    <div class="md:hidden block">
+      <button id="menu-toggle" class="text-white text-3xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 text-white font-semibold text-sm">
+    <a href="index.html" class="block nav-link">Profile</a>
+    <a href="aboutus.html" class="block nav-link">About Us</a>
+    <a href="event.html" class="block nav-link">Events</a>
+    <a href="kamist.html" class="block nav-link">KaMIST</a>
+  </div>
+</nav>
+
+<section class="kamist-section">
+  <h1 class="kamist-title">KaMIST</h1>
+  <p class="kamist-subtitle">Lunch Break, But Make It Jogja</p>
+
+  <img src="img/jogja.png" class="kamist-image" alt="Lunch Break, But Make It Jogja">
+
+  <div class="article-box">
+    <div class="content">
+      <h2 class="text-2xl font-bold mb-2">Lunch Break, But Make It Jogja</h2>
+      <p class="font-semibold mb-4">Hello, OptiMIST People!</p>
+
+      <p class="mb-4">
+        Back at it again with KaMIST, your weekly dose of fresh marketing insights. This week, let’s talk about something warm, nostalgic, and surprisingly strategic: Indomie’s new lunch innovation, Mie Nyemek Jogja.
+      </p>
+
+      <p class="mb-4">
+        In a country where Indomie is practically a lifestyle, launching a new flavor isn’t just about adding variety, it’s about creating a moment. Mie Nyemek Jogja, Indomie does more than introduce a product; they bring a cultural experience into everyday life. Inspired by the iconic Jogja-style noodles that sit perfectly between dry and soupy, this “nyemek” texture delivers that rich, slightly saucy comfort that feels like it came straight from an “angkringan”.
+      </p>
+
+      <p class="mb-4">
+        What makes this launch even more interesting is how Indomie positions it as a lunch option. For years, Indomie has dominated late-night cravings and quick dinners, but now it subtly expands its role in consumers’ daily routines. By highlighting Mie Nyemek Jogja as a satisfying lunch choice, the brand taps into busy students, office workers, and anyone who wants something practical yet flavorful. It’s quick, affordable, and comforting, but still feels special enough to break the monotony of regular meals. Without loudly saying it, Indomie reminds us that upgrading your lunch doesn’t have to be complicated.
+      </p>
+
+      <p class="mb-4">
+        From a marketing perspective, this move reflects a powerful strategy: localization with emotional resonance. Jogja carries strong associations with warmth, culture, and togetherness. By embedding that identity into the product, Indomie transforms a simple instant noodle into a story. Consumers aren’t just buying noodles; they’re buying a taste of Jogja’s cozy nights and vibrant street-food energy. That emotional connection is what keeps a legacy brand relevant across generations.
+      </p>
+
+      <p class="mb-4">
+        There’s also strong viral potential here. The texture alone invites content: cooking hacks to make it extra nyemek, office lunch reviews, or “can’t go to Jogja, so I brought Jogja home” moments on TikTok. Indomie understands that in today’s digital landscape, user-generated content often speaks louder than traditional ads. When a product feels authentic and culturally rooted, people naturally want to share it.
+      </p>
+
+      <p class="mb-4">
+        At its core, Mie Nyemek Jogja shows how a heritage brand can innovate without losing its identity. Indomie doesn’t try to become something it’s not. Instead, it deepens what it already does best: delivering comfort in a bowl. And if your next lunch needs something warm, flavorful, and just a little different, this might be the perfect excuse to bring a bit of Jogja to your table.
+      </p>
+
+      <p class="mb-4">
+        Wanna get more insights into marketing? Tune in every Thursday for more KaMIST!
+      </p>
+
+      <div class="mt-6">
+        <p class="font-semibold mb-1">You can reach us at</p>
+        <p>LINE: @mistfebui</p>
+        <p>Instagram: @mistfebui</p>
+        <p>Twitter: @mistfebui</p>
+        <p>Facebook: MIST FEB UI</p>
+      </div>
+
+      <p class="mt-4 font-bold text-yellow-300">Stay, #optiMIST</p>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer id="contact" class="bg-mist-purple text-white px-6 md:px-20 py-12 text-sm w-full">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="font-bold text-lg mb-2">PARTNERSHIP</h3>
+      <p>0818-236-900 (Michelle)</p>
+      <p><a href="mailto:partnership@mist-febui.com" class="underline">partnership@mist-febui.com</a></p>
+    </div>
+    <div>
+      <h3 class="font-bold text-lg mb-2">PUBLICATION</h3>
+      <p>0821-1170-7538 (Dira)</p>
+      <p><a href="mailto:publication@mistfebui.com" class="underline">publication@mistfebui.com</a></p>
+    </div>
+    <div>
+      <h3 class="font-bold text-lg mb-2">EVENT</h3>
+      <p>0813-2222-9532 (Kiara)</p>
+      <p><a href="mailto:event@mist-febui.com" class="underline">event@mist-febui.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () =>
+    document.getElementById('mobile-menu').classList.toggle('hidden')
+  );
+</script>
+
+</body>
+</html>
